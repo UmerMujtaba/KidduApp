@@ -5,7 +5,7 @@ import {
     View,
 } from 'react-native';
 import { colors } from '../../constants/colors';
-import { rfs, rhp } from '../../constants/dimenssions';
+import { rfs, rhp } from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
 const CustomTextInput = forwardRef(
     (

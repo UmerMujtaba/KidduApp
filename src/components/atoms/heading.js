@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Strings } from "../../constants/strings";
-import { rfs, rhp } from "../../constants/dimenssions";
+import { rfs, rhp } from "../../constants/dimensions";
 import fonts from "../../constants/fonts";
 import { colors } from "../../constants/colors";
 

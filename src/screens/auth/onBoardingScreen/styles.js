@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { rfs, rhp, rwp, width } from "../../../constants/dimenssions";  // Make sure these constants are correct
+import { rfs, rhp, rwp, width } from "../../../constants/dimensions";  // Make sure these constants are correct
 import { colors } from "../../../constants/colors";  // Make sure the color constants are defined
 import fonts from "../../../constants/fonts";  // Make sure your fonts are defined if needed
 

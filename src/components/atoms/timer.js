@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet } from 'react-native';
-import { rfs } from "../../constants/dimenssions";
+import { rfs } from "../../constants/dimensions";
 import { colors } from "../../constants/colors";
 import fonts from '../../constants/fonts';
 

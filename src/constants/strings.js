@@ -5,7 +5,8 @@ export const Strings = {
     login: 'Login',
     getStarted: 'Get Started',
     appName: 'Kiddu',
-    enterOtp: 'Enter OTP'
+    enterOtp: 'Enter OTP',
+    greetingText: 'Hi, Arya!',
 
 
 };
@@ -13,6 +14,7 @@ export const Strings = {
 export const ScreenNames = {
     AuthStack: 'AuthStack',
     BottomStack: 'BottomStack',
+    homeNavigator: 'HomeNavigator',
     BoardingScreen: 'onBoardingScreen',
     registerationScreen: 'SignUpScreen',
     otpScreen: 'OtpScreen',

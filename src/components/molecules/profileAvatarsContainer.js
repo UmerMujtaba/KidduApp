@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import ProfileRoundedAvatar from "../atoms/profileAvatar";
 import { images } from "../../assets/images";
-import { rfs, rhp, rwp } from "../../constants/dimenssions";
+import { rfs, rhp, rwp } from "../../constants/dimensions";
 import { colors } from "../../constants/colors";
 import fonts from "../../constants/fonts";
 

@@ -7,7 +7,7 @@ import GamesScreen from '../../screens/bottom/gamesScreen';
 import ListsScreen from '../../screens/bottom/listScreen';
 import RewardsScreen from '../../screens/bottom/rewardsScreen';
 import SettingsScreen from '../../screens/bottom/settingScreen';
-import { rfs, rhp, rwp } from '../../constants/dimenssions';
+import { rfs, rhp, rwp } from '../../constants/dimensions';
 import { images } from '../../assets/images';
 import fonts from '../../constants/fonts';
 import { colors } from '../../constants/colors';
@@ -59,6 +59,7 @@ const Bottom = () => {
                     backgroundColor: 'orange',
                     paddingTop: 2,
                     borderTopLeftRadius: 30,
+                    borderColor:'transparent',
                     borderTopRightRadius: 30,
                     // borderRadius:20,
                     borderLeftWidth: 0.2,
@@ -70,7 +71,7 @@ const Bottom = () => {
             }}
         >
             <Tab.Screen
-                name={ScreenNames.homeScreen}
+                name={ScreenNames.homeNavigator}
                 component={HomeNavigator}
                 options={{
                     headerShown: false,

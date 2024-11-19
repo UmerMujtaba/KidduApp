@@ -4,6 +4,7 @@ import SelectionContainer from "../atoms/selectionContainer";
 import { images } from "../../assets/images";
 import { ScreenNames } from "../../constants/strings";
 import { navigate } from "../../navigationHandler/navigationRef";
+import { rhp, rwp } from "../../constants/dimensions";
 
 // Sample data for images and headings
 const data = [
@@ -18,10 +19,11 @@ const data = [
 
 
 const ScrollableSelectionList = () => {
-    const renderItem = ({ item }) => (
+    const renderItem = ({ item, index }) => (
         <SelectionContainer
             imageSource={item.imageSource}
             heading={item.heading}
+            index={index}
             onPress={() => {
                 console.log(item);
                 navigate(item.screen);
@@ -35,7 +37,6 @@ const ScrollableSelectionList = () => {
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id.toString()}
-                contentContainerStyle={styles.listContainer}
                 showsVerticalScrollIndicator={false}
             />
         </View>
@@ -44,12 +45,9 @@ const ScrollableSelectionList = () => {
 
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 200,
+        marginBottom: rhp(180),
     },
-    listContainer: {
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-    },
+
 });
 
 export default ScrollableSelectionList;

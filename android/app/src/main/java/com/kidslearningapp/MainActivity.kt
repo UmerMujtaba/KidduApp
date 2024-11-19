@@ -6,6 +6,7 @@ import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 import org.devio.rn.splashscreen.SplashScreen // <- Add this import
+import com.zmxv.RNSound.RNSoundPackage;
 
 class MainActivity : ReactActivity() {
 
@@ -13,6 +14,7 @@ class MainActivity : ReactActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         SplashScreen.show(this) // <- Move this line inside onCreate method
         super.onCreate(savedInstanceState)
+        
     }
     
   /**

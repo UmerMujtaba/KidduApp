@@ -12,7 +12,7 @@ export const NavigationHandler = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       {/* <NavigationStack.Navigator initialRouteName={ScreenNames.AuthStack}> */}
-      <NavigationStack.Navigator initialRouteName={ScreenNames.BottomStack}>
+        <NavigationStack.Navigator initialRouteName={ScreenNames.BottomStack}>
         <NavigationStack.Screen
           name={ScreenNames.AuthStack}
           component={Auth}
@@ -23,9 +23,7 @@ export const NavigationHandler = () => {
           component={Bottom}
           options={{ headerShown: false }}
         />
-
-        </NavigationStack.Navigator>
-
-        </NavigationContainer>
+      </NavigationStack.Navigator>
+    </NavigationContainer>
   )
 }

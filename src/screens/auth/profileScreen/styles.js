@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { hp, rfs, rhp, rwp, wp } from "../../../constants/dimenssions";
+import { hp, rfs, rhp, rwp, wp } from "../../../constants/dimensions";
 import { colors } from "../../../constants/colors";
 import fonts from "../../../constants/fonts";
 

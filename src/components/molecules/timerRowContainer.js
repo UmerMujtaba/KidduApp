@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import Timer from '../atoms/timer';  // Timer component
-import { rfs, rhp, wp } from '../../constants/dimenssions';
+import { rfs, rhp, wp } from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
 import { colors } from '../../constants/colors';
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { rfs, rhp, rwp } from "../../constants/dimenssions";
+import { rfs, rhp, rwp } from "../../constants/dimensions";
 import { images } from "../../assets/images";
 import fonts from "../../constants/fonts";
 import { colors } from "../../constants/colors";
@@ -8,7 +8,7 @@ import { colors } from "../../constants/colors";
 const InterestsTouchableComponent = ({ imageSource, title, onPress, isSelected }) => {
     return (
         <TouchableOpacity style={styles.container} activeOpacity={0.5}>
-            <TouchableOpacity style={[styles.container, { height: rhp(120), backgroundColor: colors.white, borderTopColor: "orange", borderLeftColor: "orange", borderRightColor: "orange", borderBottomColor: "white", justifyContent: 'center' }]} activeOpacity={0.5} onPress={onPress}>
+            <TouchableOpacity style={[styles.container, { height: rhp(135), backgroundColor: colors.white, borderTopColor: "orange", borderLeftColor: "orange", borderRightColor: "orange", borderBottomColor: "white", justifyContent: 'center' }]} activeOpacity={0.5} onPress={onPress}>
 
                 {isSelected && (
                     <View style={styles.tickCircle}>
@@ -24,8 +24,8 @@ const InterestsTouchableComponent = ({ imageSource, title, onPress, isSelected }
 
 const styles = StyleSheet.create({
     container: {
-        width: rwp(130),
-        height: rhp(130),
+        width: rwp(140),
+        height: rhp(140),
         borderRadius: 16,
         backgroundColor: colors.lightGrey,
         alignItems: "center",

@@ -17,5 +17,10 @@ export const colors = {
     blackishOrange:'#cc5200',
     backgroundClr:'#7c3ecd',
     headingColor:'#f8c63b',
+    greyColor: '#a1a1a1',
+  DarkBrown:'#401903',
+  lightBrown:'#5D2A0E'
   };
+  
+
   

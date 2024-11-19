@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
-import { hp, rfs, rhp, rwp, wp } from "../../constants/dimenssions";
+import { hp, rfs, rhp, rwp, wp } from "../../constants/dimensions";
 import fonts from "../../constants/fonts";
 import { colors } from "../../constants/colors";
 

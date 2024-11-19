@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import CustomTextInput from '../atoms/customTextInput'
 import fonts from '../../constants/fonts'
-import { rfs, rhp } from '../../constants/dimenssions'
+import { rfs, rhp } from '../../constants/dimensions'
 import { colors } from '../../constants/colors'
 
 

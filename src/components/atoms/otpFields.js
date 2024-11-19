@@ -6,7 +6,7 @@ import {
     useBlurOnFulfill,
     useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
-import { rfs, rhp, rwp } from "../../constants/dimenssions";
+import { rfs, rhp, rwp } from "../../constants/dimensions";
 import fonts from "../../constants/fonts";
 import { colors } from "../../constants/colors";
 

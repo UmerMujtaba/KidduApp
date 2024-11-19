@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import InputField from '../molecules/inputField'
-import { rhp, rwp } from '../../constants/dimenssions'
+import { rhp, rwp } from '../../constants/dimensions'
 
 
 const InputFieldContainer = () => {

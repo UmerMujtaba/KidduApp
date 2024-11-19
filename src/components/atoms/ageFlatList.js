@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { View, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { rfs, rhp } from '../../constants/dimenssions';
+import { rfs, rhp } from '../../constants/dimensions';
 import { colors } from '../../constants/colors';
 import fonts from '../../constants/fonts';
 
@@ -10,8 +10,23 @@ const HorizontalNumberList = () => {
 
     const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+    // Centers item when manually selected
     const handleItemPress = (index) => {
         setSelectedIndex(index);
+        flatListRef.current.scrollToIndex({
+            index,
+            animated: true,
+            viewPosition: 0.5, // Centers the selected item
+        });
+    };
+
+    // Handles item selection when scrolling stops
+    const handleMomentumScrollEnd = (event) => {
+        const offsetX = event.nativeEvent.contentOffset.x;
+        const index = Math.round(offsetX / rhp(80)); // Assuming item width equals rhp(80)
+        setSelectedIndex(index);
+
+        // Optional: Recenters the selected item to ensure consistent centering
         flatListRef.current.scrollToIndex({
             index,
             animated: true,
@@ -24,10 +39,7 @@ const HorizontalNumberList = () => {
             onPress={() => handleItemPress(index)}
             style={[
                 styles.itemContainer,
-                selectedIndex === index && [
-                    styles.selectedItemContainer,
-                    { height: rhp(80), backgroundColor: colors.darkOrange, borderTopColor: "orange", borderLeftColor: "orange", borderRightColor: "orange", borderBottomColor: "white", justifyContent: 'center' },
-                ],
+                selectedIndex === index && styles.selectedItemContainer,
             ]}
         >
             <Text
@@ -57,6 +69,9 @@ const HorizontalNumberList = () => {
                     offset: rhp(80) * index,
                     index,
                 })}
+                onMomentumScrollEnd={handleMomentumScrollEnd}
+                snapToInterval={rhp(80)} // Ensures snapping to the item width
+                decelerationRate="fast"
             />
         </View>
     );
@@ -81,7 +96,6 @@ const styles = StyleSheet.create({
     selectedItemContainer: {
         backgroundColor: colors.gradientColor1,
         height: rhp(80),
-
         justifyContent: 'center',
         alignItems: 'center',
     },

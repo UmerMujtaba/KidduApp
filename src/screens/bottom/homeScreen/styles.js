@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { hp, rfs, rhp, rwp, wp } from "../../../constants/dimenssions";
+import { hp, rfs, rhp, rwp, wp } from "../../../constants/dimensions";
 import { colors } from "../../../constants/colors";
 import fonts from "../../../constants/fonts";
 
@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         // backgroundColor: colors.backgroundClr,
-        paddingHorizontal: 20
+        paddingHorizontal: 10
     },
     appBarContainer: {
         paddingVertical: rhp(5),

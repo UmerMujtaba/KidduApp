@@ -1,9 +1,20 @@
 import { StyleSheet } from "react-native";
-import fonts from "../../../constants/fonts";
-import { hp, rfs, rhp, rwp, wp } from "../../../constants/dimenssions";
-import { colors } from "../../../constants/colors";
+import { rhp } from "../../../constants/dimensions";
 
 
 export const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // backgroundColor: colors.backgroundClr,
+        padding: 20,
+    },
+    columnWrapperStyle: {
+        justifyContent: 'space-around',
+        marginTop: rhp(20),
+        marginBottom: rhp(20)
+    },
+    contentContainerStyle: {
+        paddingVertical: rhp(20)
+    }
 
 })

@@ -1,13 +1,13 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { rhp, rwp } from "../../constants/dimenssions";
+import { rhp, rwp } from "../../constants/dimensions";
 import { colors } from "../../constants/colors";
 
 
 const ProfileRoundedAvatar = ({ imageSource }) => {
     return (
         <View style={styles.container}>
-            <View style={[styles.container, { height: rhp(95), backgroundColor: colors.darkOrange, borderTopColor: "orange", borderLeftColor: "orange", borderRightColor: "orange", borderBottomColor: "white", justifyContent: 'center' }]}>
+            <View style={[styles.container, { height: rhp(98), backgroundColor: colors.darkOrange, borderTopColor: "orange", borderLeftColor: "orange", borderRightColor: "orange", borderBottomColor: "white", justifyContent: 'center' }]}>
                 <Image source={imageSource} style={styles.img} />
             </View>
         </View>
