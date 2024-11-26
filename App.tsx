@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { Platform, View } from 'react-native';
+import React, {useEffect} from 'react';
+import {Platform} from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
-import { NavigationHandler } from './src/navigationHandler';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
-
+import {SoundProvider} from './src/context/soundsContext';
+import {NavigationHandler} from './src/navigationHandler';
 
 const App = () => {
   useEffect(() => {
@@ -13,11 +12,14 @@ const App = () => {
     }
   }, []);
   return (
-
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <NavigationHandler />
+    // <SoundProvider>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <SoundProvider>
+        <NavigationHandler />
+      </SoundProvider>
     </GestureHandlerRootView>
+    // </SoundProvider>
   );
-}
+};
 
 export default App;

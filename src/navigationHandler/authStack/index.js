@@ -1,11 +1,11 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScreenNames } from '../../constants/strings';
-import onBoardingScreen from '../../screens/auth/onBoardingScreen';
-import SignUpScreen from '../../screens/auth/registerationScreen';
-import OtPScreen from '../../screens/auth/otpScreen';
-import ProfileScreen from '../../screens/auth/profileScreen';
-import KidsInterestSelectionScreen from '../../screens/auth/intersetsScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {ScreenNames} from '../../constants/strings';
+import onBoardingScreen from '../../screens/auth/onBoarding';
+import SignUpScreen from '../../screens/auth/registeration';
+import OtPScreen from '../../screens/auth/otp';
+import ProfileScreen from '../../screens/auth/profile';
+import KidsInterestSelectionScreen from '../../screens/auth/intersets';
 
 const AuthStack = createNativeStackNavigator();
 
@@ -44,7 +44,6 @@ const Auth = () => {
         component={KidsInterestSelectionScreen}
         options={navigationOptions}
       />
-
     </AuthStack.Navigator>
   );
 };

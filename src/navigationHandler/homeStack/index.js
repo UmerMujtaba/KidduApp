@@ -1,12 +1,12 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScreenNames } from '../../constants/strings';
-import AlphabetsScreen from '../../screens/bottom/alphabetsScreen';
-import NumbersScreen from '../../screens/bottom/numbersScreen';
-import ShapesScreen from '../../screens/bottom/shapesScreen';
-import AnimalsScreen from '../../screens/bottom/animalsScreen';
-import KidsGamesScreen from '../../screens/bottom/kidsGameScreen';
-import HomeScreen from '../../screens/bottom/homeScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {ScreenNames} from '../../constants/strings';
+import AlphabetsScreen from '../../screens/bottom/alphabets';
+import NumbersScreen from '../../screens/bottom/numbers';
+import ShapesScreen from '../../screens/bottom/shapes';
+import AnimalsScreen from '../../screens/bottom/animals';
+import KidsGamesScreen from '../../screens/bottom/kidsGame';
+import HomeScreen from '../../screens/bottom/home';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -50,7 +50,6 @@ const HomeNavigator = () => {
         component={KidsGamesScreen}
         options={navigationOptions}
       />
-
     </HomeStack.Navigator>
   );
 };

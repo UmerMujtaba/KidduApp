@@ -9,11 +9,13 @@ import {
 export const navigationRef = React.createRef();
 
 export async function navigateReset(name, params) {
-  
-  
-  console.log("🚀 ~ navigateReset ~ navigateReset ~ name:", name, '  params => ', params)
-  
- 
+  console.log(
+    '🚀 ~ navigateReset ~ navigateReset ~ name:',
+    name,
+    '  params => ',
+    params,
+  );
+
   navigationRef.current?.dispatch(
     CommonActions.reset({
       index: 0,
@@ -41,9 +43,7 @@ export async function navigateResetStoreClear(name, reduxDispatch) {
   reduxDispatch(clear());
 }
 export async function navigateBack(name, params) {
-  navigationRef.current?.dispatch(
-    CommonActions.goBack(),
-  );
+  navigationRef.current?.dispatch(CommonActions.goBack());
 }
 
 export function getRouteName() {
@@ -51,8 +51,13 @@ export function getRouteName() {
 }
 
 export async function navigate(name, params) {
-  console.log("🚀 ~ navigateReset ~ navigateReset ~ name:", name, '  params => ', params)
- 
+  console.log(
+    '🚀 ~ navigateReset ~ navigateReset ~ name:',
+    name,
+    '  params => ',
+    params,
+  );
+
   navigationRef.current?.navigate(name, params);
 }
 export async function popScreen() {
@@ -61,12 +66,15 @@ export async function popScreen() {
 }
 
 export async function openDrawer() {
-  console.log("Yess");
+  console.log('Yess');
   try {
     DrawerActions.openDrawer();
     // navigationRef.current.dispatch();
-  } catch(error) {
-    console.log(":rocket: ~ file: navigationRef.js:41 ~ openDrawer ~ error:", error);
+  } catch (error) {
+    console.log(
+      ':rocket: ~ file: navigationRef.js:41 ~ openDrawer ~ error:',
+      error,
+    );
   }
 }
 export async function closeDrawer() {
