@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FlatList, ImageBackground} from 'react-native';
 import {images} from '../../../assets/images';
 import AlphabetComponent from '../../../components/atoms/alphabetComponent';
@@ -7,6 +7,7 @@ import {numbersData} from '../../../utils/numbersScreenData';
 import {styles} from './styles';
 
 const NumbersScreen = () => {
+  const [playingSound, setPlayingSound] = useState(null);
   const renderItem = ({item}) => {
     console.log('🚀 ~ renderItem ~ item:', item);
     // Destructure item to get letter, image, and soundFile
@@ -16,6 +17,8 @@ const NumbersScreen = () => {
         letter={letter}
         imageSource={image}
         soundFile={soundFile}
+        playingSound={playingSound}
+        setPlayingSound={setPlayingSound}
       />
     );
   };

@@ -7,6 +7,7 @@ import ShapesScreen from '../../screens/bottom/shapes';
 import AnimalsScreen from '../../screens/bottom/animals';
 import KidsGamesScreen from '../../screens/bottom/kidsGame';
 import HomeScreen from '../../screens/bottom/home';
+import Vehicle from '../../screens/bottom/vehicle';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -46,10 +47,15 @@ const HomeNavigator = () => {
         options={navigationOptions}
       />
       <HomeStack.Screen
+        name={ScreenNames.vehicleScreen}
+        component={Vehicle}
+        options={navigationOptions}
+      />
+      {/* <HomeStack.Screen
         name={ScreenNames.kidsGamesScreen}
         component={KidsGamesScreen}
         options={navigationOptions}
-      />
+      /> */}
     </HomeStack.Navigator>
   );
 };

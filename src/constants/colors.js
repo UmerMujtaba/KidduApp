@@ -24,4 +24,7 @@ export const colors = {
   lightPink: '#ee4480',
   simpleWhite: '#f2f2f2',
   whiteGrey: '#DFDFDF',
+  parrot: '#00ff00',
+  lightRed: '#ff3333',
+  green: '#008000',
 };

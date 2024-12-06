@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   topBar: {
     width: '20%',
     height: 4,
-    backgroundColor: 'green',
+    backgroundColor: colors.green,
     borderRadius: 20,
   },
   description: {

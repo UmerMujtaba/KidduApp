@@ -3,6 +3,11 @@ export const images = {
   backgroundImage: require('./backgroundimage.png'),
   boyAvatar: require('./boy.png'),
   girlAvatar: require('./girl.png'),
+  rewardHat: require('./hat.png'),
+  defaultImg: require('./defaultImg.png'),
+  bearBooks: require('./bearBooks.png'),
+  bearPainting: require('./bearPainting.png'),
+  elephantBook: require('./elephantBook.png'),
 
   alphabets: {
     a: require('./alphabets/a.png'),
@@ -69,7 +74,7 @@ export const images = {
   },
 
   animals: {
-    cat: require('./animals/cat.png'),
+    // cat: require('./animals/cat.png'),
     animalsGroup: require('./animals/animalsgroup.png'),
   },
 
@@ -87,6 +92,7 @@ export const images = {
     eyeIcon: require('./icons/eyeicon.png'),
     questionIcon: require('./icons/question.png'),
     loudSpeaker: require('./icons/loud_speaker.png'),
+    speakIcon: require('./icons/speak.png'),
   },
 
   letterA: {

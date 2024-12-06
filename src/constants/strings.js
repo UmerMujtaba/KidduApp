@@ -9,6 +9,12 @@ export const Strings = {
   greetingText: 'Hi, Arya!',
   exercises: 'exercises',
   errorInvalidData: 'Error: Invalid data passed to the screen',
+  pleaseSelectCorrectShape: 'Please Select a correct shape?',
+  goodJob: 'Good Job!',
+  unlockedYourNewReward: 'Unlocked Your New Reward',
+  congrats: 'Congrats!',
+  youUnlockedNewReward: 'You are rewarded with 1 magic reward',
+  howMany: 'How many items?',
 };
 
 export const ScreenNames = {
@@ -30,6 +36,7 @@ export const ScreenNames = {
   numbersScreen: 'NumericScreen',
   shapesScreen: 'ShapesScreen',
   animalsScreen: 'AnimalsScreen',
+  vehicleScreen: 'VehicleScreen',
   kidsGamesScreen: 'KidsGamesScreen',
   alphabetExerciseMainScreen: 'AlphabetExerciseMainScreen',
 

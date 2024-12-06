@@ -4,10 +4,10 @@ import {colors} from '../../constants/colors';
 import {rfs, rhp, wp} from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
 
-export const TouchableButton = ({onPress, title, btnPropStyle}) => {
+export const TouchableButton = ({onPress, title, btnPropStyle, btnInside}) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.btnStyle, btnPropStyle]}>
-      <View style={[styles.btnStyle, styles.insideBtnStyle]}>
+      <View style={[styles.btnStyle, styles.insideBtnStyle, btnInside]}>
         <Text style={styles.btnText}>{title}</Text>
       </View>
     </TouchableOpacity>

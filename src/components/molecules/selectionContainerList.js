@@ -58,6 +58,9 @@ const ScrollableSelectionList = () => {
     <View style={styles.container}>
       <FlatList
         data={data}
+        contentContainerStyle={{
+          marginInline: rwp(20),
+        }}
         renderItem={renderItem}
         keyExtractor={item => item.id.toString()}
         showsVerticalScrollIndicator={false}

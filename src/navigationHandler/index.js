@@ -6,6 +6,8 @@ import Auth from './authStack';
 import {ScreenNames} from '../constants/strings';
 import Bottom from './bottomStack';
 import AlphabetsExerciseMain from '../screens/bottom/alphabetExerciseMain';
+import ShapesExercise from '../screens/bottom/shapesExercise';
+import NumbersExercise from '../screens/bottom/numbersExercise';
 
 const NavigationStack = createNativeStackNavigator();
 
@@ -27,6 +29,16 @@ export const NavigationHandler = () => {
         <NavigationStack.Screen
           name={ScreenNames.alphabetExerciseMainScreen}
           component={AlphabetsExerciseMain}
+          options={{headerShown: false}}
+        />
+        <NavigationStack.Screen
+          name={ScreenNames.shapesExerciseScreen}
+          component={ShapesExercise}
+          options={{headerShown: false}}
+        />
+        <NavigationStack.Screen
+          name={ScreenNames.numbersExerciseScreen}
+          component={NumbersExercise}
           options={{headerShown: false}}
         />
       </NavigationStack.Navigator>

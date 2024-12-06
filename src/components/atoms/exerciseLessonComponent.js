@@ -31,7 +31,7 @@ const ExerciseLessonComponent = ({
 const styles = StyleSheet.create({
   container: {
     height: rhp(150),
-    width: '95%',
+    width: '97%',
     backgroundColor: colors.whiteGrey,
     borderRadius: 25,
     borderColor: '#E2E2E2',
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   },
   insideContainer: {
     height: rhp(140),
+    width: '100%',
     backgroundColor: colors.white,
     borderTopColor: 'pink',
     borderLeftColor: 'pink',
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
   },
   leftContainer: {
-    paddingHorizontal: rwp(30),
+    paddingHorizontal: rwp(20),
     paddingVertical: rhp(20),
   },
   heading: {

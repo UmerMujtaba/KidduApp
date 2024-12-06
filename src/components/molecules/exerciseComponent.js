@@ -1,11 +1,14 @@
 import React from 'react';
-import {ScrollView, View, TouchableOpacity} from 'react-native';
+import {ScrollView, View, TouchableOpacity, Text} from 'react-native';
 import {navigate} from '../../navigationHandler/navigationRef'; // Your navigation helper
 import ExerciseLessonComponent from '../atoms/exerciseLessonComponent'; // Assuming this is your component
 import ExerciseSetHeader from '../atoms/exerciseSetHeader'; // Assuming this is your component
 import {alphabetData} from '../../utils/alphabetsScreenData'; // Your alphabet data
+import {shapesData} from '../../utils/shapesScreenData';
+import {numbersData} from '../../utils/numbersScreenData';
+import CustomBottomTab from '../atoms/customBottomTab';
 
-const ExampleScreen = ({exerciseType}) => {
+const ExampleScreen = ({exerciseType, Data}) => {
   console.log('🚀 ~ ExampleScreen ~ exerciseType:', exerciseType);
   let headerTitle = '';
   let countText = '';
@@ -19,6 +22,20 @@ const ExampleScreen = ({exerciseType}) => {
       subHeading = '26 sets and letters';
       lessonData = alphabetData;
       break;
+
+    case 'numbers':
+      headerTitle = 'Numbers Set';
+      countText = '1/26';
+      subHeading = '26 exercises';
+      lessonData = numbersData;
+      break;
+
+    case 'shapes':
+      headerTitle = 'Shapes Set';
+      countText = '1/26';
+      subHeading = '26 exercises';
+      lessonData = shapesData;
+      break;
     // Add other cases for numbers, shapes, etc. if necessary
     default:
       headerTitle = 'Exercise Set';
@@ -29,30 +46,36 @@ const ExampleScreen = ({exerciseType}) => {
   }
 
   return (
-    <ScrollView contentContainerStyle={{paddingBottom: 20}}>
+    <ScrollView
+      contentContainerStyle={{
+        paddingBottom: 100,
+      }}>
       <ExerciseSetHeader
         title={headerTitle}
         count={countText}
         description={subHeading}
       />
-      {lessonData.map((lesson, index) => (
-        <View style={{alignSelf: 'center'}} key={index}>
-          <TouchableOpacity
-            onPress={() => {
-              console.log('🚀 ~ ExampleScreen ~ lessonData:', lessonData);
+      {Data &&
+        lessonData.map((lesson, index) => (
+          <View style={{alignSelf: 'center'}} key={index}>
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+              }}
+              onPress={() => {
+                console.log('🚀 ~ ExampleScreen ~ lessonData:', lessonData);
 
-              // When a lesson is pressed, navigate to the screen defined in the lesson's data
-              navigate(lesson.screen, {letterData: lesson});
-            }}>
-            <ExerciseLessonComponent
-              heading={lesson.name}
-              subHeading={subHeading}
-              imageSource={lesson.image}
-              onPress={() => navigate(lesson.screen, {letterData: lesson})}
-            />
-          </TouchableOpacity>
-        </View>
-      ))}
+                navigate(lesson.screen, {letterData: lesson});
+              }}>
+              <ExerciseLessonComponent
+                heading={lesson.name}
+                subHeading={subHeading}
+                imageSource={lesson.image}
+                onPress={() => navigate(lesson.screen, {letterData: lesson})}
+              />
+            </TouchableOpacity>
+          </View>
+        ))}
     </ScrollView>
   );
 };

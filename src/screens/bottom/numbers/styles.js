@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor: colors.backgroundClr,
-    padding: 20,
+    paddingTop: 20,
   },
   columnWrapperStyle: {
     justifyContent: 'space-around',
@@ -14,5 +14,6 @@ export const styles = StyleSheet.create({
   },
   contentContainerStyle: {
     paddingVertical: rhp(20),
+    paddingBottom: rhp(100),
   },
 });

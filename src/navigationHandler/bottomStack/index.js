@@ -6,7 +6,6 @@ import HomeScreen from '../../screens/bottom/home';
 import GamesScreen from '../../screens/bottom/games';
 import ListsScreen from '../../screens/bottom/list';
 import RewardsScreen from '../../screens/bottom/rewards';
-import SettingsScreen from '../../screens/bottom/setting';
 import {rfs, rhp, rwp} from '../../constants/dimensions';
 import {images} from '../../assets/images';
 import fonts from '../../constants/fonts';
@@ -14,6 +13,7 @@ import {colors} from '../../constants/colors';
 import {ScreenNames} from '../../constants/strings';
 import HomeNavigator from '../homeStack';
 import GameNavigator from '../gameStack';
+import SettingsScreen from '../../screens/bottom/setting';
 
 const Tab = createBottomTabNavigator();
 const Bottom = () => {

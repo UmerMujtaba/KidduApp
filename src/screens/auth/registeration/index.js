@@ -1,15 +1,17 @@
 import React from 'react';
 import {Image, ImageBackground, View} from 'react-native';
-import {styles} from './styles';
+import {images} from '../../../assets/images';
+import {TouchableButton} from '../../../components/atoms/button';
 import {HeadingText} from '../../../components/atoms/heading';
 import InputFieldContainer from '../../../components/orgnaisms/inputFieldContainer';
-import {TouchableButton} from '../../../components/atoms/button';
 import {rhp} from '../../../constants/dimensions';
-import {images} from '../../../assets/images';
-import {navigate} from '../../../navigationHandler/navigationRef';
 import {ScreenNames} from '../../../constants/strings';
+import {useKeyboard} from '../../../hooks';
+import {navigate} from '../../../navigationHandler/navigationRef';
+import {styles} from './styles';
 
 const SignUpScreen = () => {
+  const keyboardStatus = useKeyboard();
   return (
     // <View style={styles.container}>
     <ImageBackground source={images.backgroundImage} style={styles.container}>
@@ -20,9 +22,11 @@ const SignUpScreen = () => {
         btnPropStyle={{marginTop: rhp(20)}}
         onPress={() => navigate(ScreenNames.otpScreen)}
       />
-      <View style={{flex: 1, justifyContent: 'flex-end'}}>
-        <Image source={images.cubImage} style={styles.imgStyle} />
-      </View>
+      {!keyboardStatus && (
+        <View style={{flex: 1, justifyContent: 'flex-end'}}>
+          <Image source={images.cubImage} style={styles.imgStyle} />
+        </View>
+      )}
       {/* </View> */}
     </ImageBackground>
   );

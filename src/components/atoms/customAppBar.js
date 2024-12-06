@@ -17,34 +17,40 @@ const CustomAppBar = ({
 
   return (
     <View style={styles.container(questionMark)}>
-      <TouchableOpacity
-        style={styles.btnStyle}
-        onPress={() => navigation.goBack()}>
-        <View style={[styles.btnStyle, styles.insideBtnStyle]}>
-          <Image source={images.icons.backIcon} style={styles.backIconStyle} />
+      <View style={{width: '20%'}}>
+        <View style={styles.btnStyle}>
+          <TouchableOpacity
+            style={[styles.btnStyle, styles.insideBtnStyle]}
+            onPress={() => navigation.goBack()}>
+            <Image
+              source={images.icons.backIcon}
+              style={styles.backIconStyle}
+            />
+          </TouchableOpacity>
         </View>
-      </TouchableOpacity>
+      </View>
 
       <View style={styles.textWrapper(questionMark)}>
         <Text style={styles.textHeading}>{title}</Text>
       </View>
-
-      {questionMark && (
-        <TouchableOpacity
-          style={styles.questionBtnStyle}
-          onPress={speaker ? onQuestionPress : onSpeakerPress}>
-          <View
-            style={[styles.questionBtnStyle, styles.insideQuestionBtnStyle]}>
-            <Image
-              source={
-                speaker ? images.icons.loudSpeaker : images.icons.questionIcon
-              }
-              // source={images.icons.questionIcon}
-              style={styles.backIconStyle}
-            />
-          </View>
-        </TouchableOpacity>
-      )}
+      <View style={{width: '20%'}}>
+        {questionMark && (
+          <TouchableOpacity
+            style={styles.questionBtnStyle}
+            onPress={speaker ? onSpeakerPress : onQuestionPress}>
+            <View
+              style={[styles.questionBtnStyle, styles.insideQuestionBtnStyle]}>
+              <Image
+                source={
+                  speaker ? images.icons.loudSpeaker : images.icons.questionIcon
+                }
+                // source={images.icons.questionIcon}
+                style={styles.backIconStyle}
+              />
+            </View>
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   );
 };
@@ -52,18 +58,19 @@ const CustomAppBar = ({
 const styles = StyleSheet.create({
   container: questionMark => ({
     flexDirection: 'row',
-    paddingHorizontal: rwp(20),
+    paddingHorizontal: rwp(10),
     paddingVertical: rhp(10),
     marginTop: rhp(20),
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
+    // backgroundColor: 'red',
   }),
   btnStyle: {
     width: rwp(45),
     backgroundColor: colors.blackishOrange,
     height: rhp(50),
-    alignSelf: 'center',
+    // alignSelf: 'center',
     borderRadius: 16,
   },
   insideBtnStyle: {
@@ -79,7 +86,7 @@ const styles = StyleSheet.create({
     width: rwp(45),
     backgroundColor: colors.darkPink,
     height: rhp(50),
-    alignSelf: 'center',
+    alignSelf: 'flex-end',
     borderRadius: 16,
   },
   insideQuestionBtnStyle: {
@@ -98,7 +105,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   textWrapper: questionMark => ({
-    width: questionMark ? hp(20) : hp(35),
+    width: '60%',
+    // backgroundColor: 'blue',
     justifyContent: 'center',
     alignItems: 'center',
   }),

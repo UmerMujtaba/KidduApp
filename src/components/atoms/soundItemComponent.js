@@ -7,19 +7,7 @@ import fonts from '../../constants/fonts';
 const SoundItemComponent = ({title, onPress}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <View
-        style={[
-          styles.container,
-          {
-            height: rhp(84),
-            backgroundColor: colors.darkOrange,
-            borderTopColor: 'orange',
-            borderLeftColor: 'orange',
-            borderRightColor: 'orange',
-            borderBottomColor: 'white',
-            justifyContent: 'center',
-          },
-        ]}>
+      <View style={[styles.container, styles.bgCon]}>
         <Text style={styles.titleStyle}>{title}</Text>
       </View>
     </TouchableOpacity>
@@ -28,11 +16,20 @@ const SoundItemComponent = ({title, onPress}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: wp(85),
+    width: wp(95),
     backgroundColor: colors.blackishOrange,
     height: rhp(94),
     borderRadius: 16,
-    marginBottom: rhp(10),
+    marginBottom: rhp(20),
+  },
+  bgCon: {
+    height: rhp(84),
+    backgroundColor: colors.darkOrange,
+    borderTopColor: 'orange',
+    borderLeftColor: 'orange',
+    borderRightColor: 'orange',
+    borderBottomColor: 'white',
+    justifyContent: 'center',
   },
   titleStyle: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,

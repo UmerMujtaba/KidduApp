@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
+    // backgroundColor: 'red',
   },
   body: {
     flex: 1,
@@ -81,5 +82,10 @@ export const styles = StyleSheet.create({
     height: 40,
     textAlignVertical: 'center',
     borderRadius: 20,
+  },
+  lottieStyle: {
+    width: 200, // Width of the Lottie animation
+    height: 200, // Height of the Lottie animation
+    marginTop: 20,
   },
 });

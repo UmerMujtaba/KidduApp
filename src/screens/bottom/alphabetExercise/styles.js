@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     // backgroundColor: colors.backgroundClr,
     paddingTop: 20,
+    // paddingHorizontal: rwp(10),
   },
   body: {
     flex: 1,

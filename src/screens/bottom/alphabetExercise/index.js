@@ -4,6 +4,7 @@ import {images} from '../../../assets/images';
 import CustomAppBar from '../../../components/atoms/customAppBar';
 import ExampleScreen from '../../../components/molecules/exerciseComponent';
 import {styles} from './styles';
+import {rwp} from '../../../constants/dimensions';
 
 const AlphabetsExercise = () => {
   return (
@@ -13,7 +14,7 @@ const AlphabetsExercise = () => {
         <View style={[styles.body, styles.bodyInside]}>
           {/* <ExerciseSetHeader /> */}
 
-          <ExampleScreen exerciseType="alphabet" />
+          <ExampleScreen exerciseType="alphabet" Data />
         </View>
       </View>
     </ImageBackground>

@@ -4,16 +4,27 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import Sound from 'react-native-sound';
 import {colors} from '../../constants/colors';
 import {rhp, rwp} from '../../constants/dimensions';
+import {images} from '../../assets/images';
 
 Sound.setCategory('Playback');
 
-const AlphabetComponent = ({letter, imageSource, soundFile}) => {
+const AlphabetComponent = ({
+  letter,
+  imageSource,
+  soundFile,
+  URI,
+  playingSound,
+  setPlayingSound,
+  onPress,
+}) => {
   const [sound, setSound] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const loadSound = () => {
@@ -40,13 +51,27 @@ const AlphabetComponent = ({letter, imageSource, soundFile}) => {
   }, [letter, soundFile]);
 
   const playPause = () => {
+    if (isPlaying) {
+      console.log('Sound is already playing. Please wait for it to finish.');
+      return;
+    }
+
+    if (playingSound && playingSound !== letter) {
+      console.log('Another sound is already playing. Please wait.');
+      return;
+    }
+
     if (sound) {
+      setIsPlaying(true);
+      setPlayingSound(letter);
       sound.play(success => {
         if (success) {
           console.log(`Playback finished successfully for ${letter}`);
         } else {
           console.error('Playback failed due to audio decoding errors');
         }
+        setIsPlaying(false);
+        setPlayingSound(null);
       });
     } else {
       console.error(`No sound loaded for letter ${letter}`);
@@ -54,11 +79,14 @@ const AlphabetComponent = ({letter, imageSource, soundFile}) => {
   };
 
   if (isLoading) {
-    <ActivityIndicator size={'large'} color={colors.backgroundClr} />;
+    return <ActivityIndicator size={'large'} color={colors.backgroundClr} />;
   }
 
   return (
-    <TouchableOpacity style={styles.container} activeOpacity={0.7}>
+    <View
+      style={styles.container}
+      activeOpacity={0.7}
+      onPress={onPress || playPause}>
       <TouchableOpacity
         style={[
           styles.container,
@@ -73,10 +101,20 @@ const AlphabetComponent = ({letter, imageSource, soundFile}) => {
           },
         ]}
         activeOpacity={0.7}
-        onPress={playPause}>
-        <Image source={imageSource} style={styles.img} />
+        onPress={onPress || playPause}>
+        <Image
+          defaultSource={images.defaultImg}
+          source={
+            URI
+              ? {
+                  uri: URI,
+                }
+              : imageSource
+          }
+          style={styles.img}
+        />
       </TouchableOpacity>
-    </TouchableOpacity>
+    </View>
   );
 };
 
@@ -91,6 +129,15 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     height: rhp(160),
     width: rwp(155),
+    borderRadius: 12,
+  },
+  imgURI: {
+    position: 'absolute',
+    resizeMode: 'cover',
+    top: 5,
+    height: rhp(150),
+    width: rwp(158),
+    alignSelf: 'center',
     borderRadius: 12,
   },
 });

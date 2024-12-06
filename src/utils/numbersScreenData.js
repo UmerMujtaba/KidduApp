@@ -71,4 +71,8 @@ export const numbersData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253767/numbers/sound_10_v2rohs.wav',
   },
+  // {
+  //   soundFile:
+  //     'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732912980/samples/fireworks_kyowvx.wav',
+  // },
 ];

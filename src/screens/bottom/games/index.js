@@ -14,9 +14,9 @@ const GamesScreen = ({navigation}) => {
         <Text style={styles.nameHeading}>{Strings.greetingText}</Text>
       </View>
 
-      <View style={{alignItems: 'center'}}>
-        <ScrollableSelectionList />
-      </View>
+      {/* <View style={{alignItems: 'center'}}> */}
+      <ScrollableSelectionList />
+      {/* </View> */}
     </ImageBackground>
   );
 };

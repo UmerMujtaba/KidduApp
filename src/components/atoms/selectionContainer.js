@@ -33,11 +33,8 @@ const SelectionContainer = ({
           <View style={styles.textWrapper}>
             <Text style={[styles.txtStyle, textStyle]}>{heading}</Text>
           </View>
-          <View style={styles.imageWrapper2}>
-            <Image
-              source={imageSource}
-              style={[styles.imgStyle2, imageStyle]}
-            />
+          <View style={styles.imageWrapper}>
+            <Image source={imageSource} style={[styles.imgStyle, imageStyle]} />
           </View>
         </>
       )}
@@ -47,10 +44,11 @@ const SelectionContainer = ({
 
 const styles = StyleSheet.create({
   container: {
-    // width: wp(80),
+    width: '100%',
     backgroundColor: colors.darkOrange,
     borderRadius: 40,
     flexDirection: 'row',
+    justifyContent: 'space-around',
     marginBottom: rhp(20),
     alignItems: 'center',
     shadowColor: '#000',
@@ -61,46 +59,33 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 10,
     elevation: 10,
+    // height: 180,
   },
   imageWrapper: {
-    width: wp(65),
+    width: '75%',
+    alignItems: 'flex-end',
     // backgroundColor: 'pink',
   },
   imgStyle: {
-    resizeMode: 'cover',
+    // resizeMode: 'cover',
     height: rhp(180),
-    width: wp(68),
+    width: '100%',
     borderRadius: 40,
-    shadowOffset: {
-      width: 3,
-      height: 6,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    elevation: 6,
+    // shadowOffset: {
+    //   width: 3,
+    //   height: 6,
+    // },
+    // shadowOpacity: 0.3,
+    // shadowRadius: 5,
+    // elevation: 6,
   },
   textWrapper: {
-    // backgroundColor: 'coral',
-    justifyContent: 'center',
-    height: 100, // Centering text if needed
-  },
+    // backgroundColor: 'purple',
 
-  imageWrapper2: {
-    width: wp(67),
-    // backgroundColor: 'red',
-  },
-  imgStyle2: {
-    resizeMode: 'cover',
-    height: rhp(180),
-    width: wp(69),
-    borderRadius: 40,
-    shadowOffset: {
-      width: 3,
-      height: 6,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    elevation: 6,
+    width: '25%',
+    // height: 170,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   txtStyle: {

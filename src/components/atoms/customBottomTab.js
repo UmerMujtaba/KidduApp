@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '../../constants/colors';
 import {rfs, rhp, rwp} from '../../constants/dimensions'; // Assuming these are already defined
-const CustomBottomTab = ({onNext, onBack}) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+import {images} from '../../assets/images';
+const CustomBottomTab = ({onNext, onBack, onSpeak}) => {
+  // const [isPlaying, setIsPlaying] = useState(false);
 
-  const handlePlayPause = () => {
-    setIsPlaying(prevState => !prevState);
-  };
+  // const handlePlayPause = () => {
+  //   setIsPlaying(prevState => !prevState);
+  // };
 
   return (
     <View style={styles.tabContainer}>
@@ -19,17 +20,24 @@ const CustomBottomTab = ({onNext, onBack}) => {
           <Ionicons name={'arrow-back'} color={'white'} size={rfs(24)} />
         </TouchableOpacity>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handlePlayPause} style={styles.tabButton}>
-        <TouchableOpacity
-          style={[styles.tabButton, styles.tabButtonInside]}
-          onPress={handlePlayPause}>
-          {isPlaying ? (
+
+      {onSpeak && (
+        <TouchableOpacity onPress={onSpeak} style={styles.tabButton}>
+          <TouchableOpacity
+            style={[styles.tabButton, styles.tabButtonInside]}
+            onPress={onSpeak}>
+            <Image
+              source={images.icons.speakIcon}
+              style={{resizeMode: 'contain', height: rhp(20), width: rwp(20)}}
+            />
+            {/* {isPlaying ? (
             <Ionicons name={'pause-outline'} color={'white'} size={rfs(24)} />
           ) : (
             <Ionicons name={'play-outline'} color={'white'} size={rfs(24)} />
-          )}
+          )} */}
+          </TouchableOpacity>
         </TouchableOpacity>
-      </TouchableOpacity>
+      )}
       <TouchableOpacity onPress={onNext} style={styles.tabButton}>
         <TouchableOpacity
           style={[styles.tabButton, styles.tabButtonInside]}
