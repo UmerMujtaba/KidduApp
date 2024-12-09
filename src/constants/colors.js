@@ -27,4 +27,5 @@ export const colors = {
   parrot: '#00ff00',
   lightRed: '#ff3333',
   green: '#008000',
+  blackWithOpacity: 'rgba(0,0,0,0.3)',
 };

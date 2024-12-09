@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '../../constants/colors';
 import {rfs, rhp, rwp} from '../../constants/dimensions'; // Assuming these are already defined
 import {images} from '../../assets/images';
+import FastImage from 'react-native-fast-image';
 const CustomBottomTab = ({onNext, onBack, onSpeak}) => {
   // const [isPlaying, setIsPlaying] = useState(false);
 
@@ -26,7 +27,7 @@ const CustomBottomTab = ({onNext, onBack, onSpeak}) => {
           <TouchableOpacity
             style={[styles.tabButton, styles.tabButtonInside]}
             onPress={onSpeak}>
-            <Image
+            <FastImage
               source={images.icons.speakIcon}
               style={{resizeMode: 'contain', height: rhp(20), width: rwp(20)}}
             />

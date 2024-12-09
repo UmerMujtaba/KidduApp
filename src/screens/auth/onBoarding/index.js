@@ -5,11 +5,12 @@ import data from '../../../utils/onBoardingScreenData';
 import {TouchableButton} from '../../../components/atoms/button';
 import {navigate} from '../../../navigationHandler/navigationRef';
 import {ScreenNames} from '../../../constants/strings';
+import FastImage from 'react-native-fast-image';
 
 const renderItem = ({item}) => {
   return (
     <View style={styles.renderItem_parentView1}>
-      <Image source={item.imgUrl} style={styles.carouselImg} />
+      <FastImage source={item.imgUrl} style={styles.carouselImg} />
       <Text style={styles.carouserTitle}>{item.heading}</Text>
       <Text style={styles.carouserSubTitle}>{item.title}</Text>
     </View>

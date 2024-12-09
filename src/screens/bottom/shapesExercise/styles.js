@@ -90,7 +90,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   optImage: {
-    resizeMode: 'cover',
+    resizeMode: 'contain',
     height: rhp(40),
     width: rwp(40),
     // borderRadius: 30,

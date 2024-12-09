@@ -32,11 +32,6 @@ const GameNavigator = () => {
       />
 
       <GameStack.Screen
-        name={ScreenNames.animalsExerciseScreen}
-        component={AnimalsExercise}
-        options={navigationOptions}
-      />
-      <GameStack.Screen
         name={ScreenNames.kidsGameExerciseScreen}
         component={KidsGameExercise}
         options={navigationOptions}

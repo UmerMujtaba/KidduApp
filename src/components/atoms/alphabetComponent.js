@@ -1,21 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {
   ActivityIndicator,
-  Image,
   StyleSheet,
   TouchableOpacity,
   View,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import Sound from 'react-native-sound';
+import {images} from '../../assets/images';
 import {colors} from '../../constants/colors';
 import {rhp, rwp} from '../../constants/dimensions';
-import {images} from '../../assets/images';
 
 Sound.setCategory('Playback');
 
 const AlphabetComponent = ({
   letter,
-  imageSource,
   soundFile,
   URI,
   playingSound,
@@ -102,15 +101,10 @@ const AlphabetComponent = ({
         ]}
         activeOpacity={0.7}
         onPress={onPress || playPause}>
-        <Image
+        <FastImage
           defaultSource={images.defaultImg}
-          source={
-            URI
-              ? {
-                  uri: URI,
-                }
-              : imageSource
-          }
+          source={{uri: URI}}
+          resizeMode={FastImage.resizeMode.cover}
           style={styles.img}
         />
       </TouchableOpacity>
@@ -133,7 +127,7 @@ const styles = StyleSheet.create({
   },
   imgURI: {
     position: 'absolute',
-    resizeMode: 'cover',
+    // resizeMode: 'cover',
     top: 5,
     height: rhp(150),
     width: rwp(158),

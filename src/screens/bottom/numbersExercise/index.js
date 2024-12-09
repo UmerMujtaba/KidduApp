@@ -14,6 +14,8 @@ import CustomBottomTab from '../../../components/atoms/customBottomTab';
 import NumbersQuestionBar from '../../../components/atoms/numbersQuestionBar';
 import {colors} from '../../../constants/colors';
 import {styles} from './styles';
+import {Strings} from '../../../constants/strings';
+import FastImage from 'react-native-fast-image';
 
 const QuestionImages = {
   image1: images.cubImage,
@@ -106,7 +108,11 @@ const NumbersExercise = () => {
     let imagesArray = [];
     for (let i = 0; i < randomCount; i++) {
       imagesArray.push(
-        <Image key={i} source={QuestionImages.image1} style={styles.image} />,
+        <FastImage
+          key={i}
+          source={QuestionImages.image1}
+          style={styles.image}
+        />,
       );
     }
     return imagesArray;
@@ -122,7 +128,7 @@ const NumbersExercise = () => {
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           <View style={styles.bottomBody}>
-            <NumbersQuestionBar />
+            <NumbersQuestionBar title={Strings.howMany} />
 
             <View style={styles.exerciseContainer}>
               <View>

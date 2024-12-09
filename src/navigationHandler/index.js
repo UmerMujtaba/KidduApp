@@ -8,6 +8,7 @@ import Bottom from './bottomStack';
 import AlphabetsExerciseMain from '../screens/bottom/alphabetExerciseMain';
 import ShapesExercise from '../screens/bottom/shapesExercise';
 import NumbersExercise from '../screens/bottom/numbersExercise';
+import AnimalsExercise from '../screens/bottom/animalsExercise';
 
 const NavigationStack = createNativeStackNavigator();
 
@@ -39,6 +40,11 @@ export const NavigationHandler = () => {
         <NavigationStack.Screen
           name={ScreenNames.numbersExerciseScreen}
           component={NumbersExercise}
+          options={{headerShown: false}}
+        />
+        <NavigationStack.Screen
+          name={ScreenNames.animalsExerciseScreen}
+          component={AnimalsExercise}
           options={{headerShown: false}}
         />
       </NavigationStack.Navigator>

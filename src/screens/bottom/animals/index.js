@@ -1,28 +1,36 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-  View,
-  Text,
-  ImageBackground,
   FlatList,
+  ImageBackground,
+  Text,
   TouchableOpacity,
-  StyleSheet,
+  View,
 } from 'react-native';
-import CustomAppBar from '../../../components/atoms/customAppBar';
-import {images} from '../../../assets/images';
-import {styles} from './styles';
-import AlphabetComponent from '../../../components/atoms/alphabetComponent';
-import {AnimalsData} from '../../../utils/animalsData';
-import {colors} from '../../../constants/colors';
-import {rhp} from '../../../constants/dimensions';
 import Tts from 'react-native-tts';
+import {images} from '../../../assets/images';
+import AlphabetComponent from '../../../components/atoms/alphabetComponent';
+import CustomAppBar from '../../../components/atoms/customAppBar';
+import {rhp} from '../../../constants/dimensions';
+import {useLoaderProvider} from '../../../contextAPI';
+import {AnimalsData} from '../../../utils/animalsData';
+import {styles} from './styles';
 const AnimalsScreen = () => {
   const [playingSound, setPlayingSound] = useState(null);
+  const {setLoader} = useLoaderProvider();
 
+  useEffect(() => {
+    setLoader(true);
+
+    setTimeout(() => {
+      setLoader(false);
+    }, 1000);
+
+    return () => setLoader(false);
+  }, [setLoader]);
   const renderItem = ({item}) => {
     console.log('🚀 ~ renderItem ~ item:', item);
 
     const {letter, image, soundFile} = item;
-
     const handleSpeakerPress = () => {
       console.log('🚀 ~ handleSpeakerPress ~ item:', item);
       const word = item.letter;
@@ -37,7 +45,6 @@ const AnimalsScreen = () => {
       <View>
         <AlphabetComponent
           letter={letter}
-          // imageSource={image}
           URI={image}
           soundFile={soundFile}
           playingSound={playingSound}

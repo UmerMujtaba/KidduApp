@@ -5,6 +5,7 @@ import {images} from '../../assets/images';
 import {colors} from '../../constants/colors';
 import {hp, rfs, rhp, rwp} from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
+import FastImage from 'react-native-fast-image';
 
 const CustomAppBar = ({
   title,
@@ -22,7 +23,7 @@ const CustomAppBar = ({
           <TouchableOpacity
             style={[styles.btnStyle, styles.insideBtnStyle]}
             onPress={() => navigation.goBack()}>
-            <Image
+            <FastImage
               source={images.icons.backIcon}
               style={styles.backIconStyle}
             />
@@ -40,7 +41,7 @@ const CustomAppBar = ({
             onPress={speaker ? onSpeakerPress : onQuestionPress}>
             <View
               style={[styles.questionBtnStyle, styles.insideQuestionBtnStyle]}>
-              <Image
+              <FastImage
                 source={
                   speaker ? images.icons.loudSpeaker : images.icons.questionIcon
                 }

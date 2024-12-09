@@ -6,10 +6,11 @@ import {rfs, rhp, rwp, wp} from '../../constants/dimensions';
 import {colors} from '../../constants/colors';
 import fonts from '../../constants/fonts';
 import Tts from 'react-native-tts';
+import FastImage from 'react-native-fast-image';
 
-const NumbersQuestionBar = () => {
+const NumbersQuestionBar = ({title}) => {
   const handleSpeakerPress = () => {
-    Tts.speak(Strings.howMany);
+    Tts.speak(title);
     Tts.setDefaultVoice('com.apple.speech.synthesis.voice.Albert');
     Tts.setDefaultPitch(0.7);
     Tts.setDefaultRate(0.5, true);
@@ -19,13 +20,13 @@ const NumbersQuestionBar = () => {
     <View style={styles.questionRow}>
       <TouchableOpacity style={styles.btn} onPress={handleSpeakerPress}>
         <View style={[styles.btn, styles.btnInside]}>
-          <Image
+          <FastImage
             source={images.icons.loudSpeaker}
             style={styles.backIconStyle}
           />
         </View>
       </TouchableOpacity>
-      <Text style={styles.question}>{Strings.howMany}</Text>
+      <Text style={styles.question}>{title}</Text>
     </View>
   );
 };

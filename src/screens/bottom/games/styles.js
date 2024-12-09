@@ -14,9 +14,9 @@ export const styles = StyleSheet.create({
     marginTop: rhp(50),
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: rhp(40),
   },
   avatarImg: {
-    resizeMode: 'contain',
     width: rwp(70),
     height: rhp(70),
   },

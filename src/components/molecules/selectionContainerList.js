@@ -1,45 +1,9 @@
 import React from 'react';
-import {View, FlatList, StyleSheet} from 'react-native';
-import SelectionContainer from '../atoms/selectionContainer';
-import {images} from '../../assets/images';
-import {ScreenNames} from '../../constants/strings';
-import {navigate} from '../../navigationHandler/navigationRef';
+import {FlatList, StyleSheet, View} from 'react-native';
 import {rhp, rwp} from '../../constants/dimensions';
-
-// Sample data for images and headings
-const data = [
-  {
-    id: 1,
-    imageSource: images.alphabets.alphabetsGroup,
-    heading: 'Alphabets',
-    screen: ScreenNames.alphabetExerciseScreen,
-  },
-  {
-    id: 2,
-    imageSource: images.numbers.numbersGroup,
-    heading: 'Numbers',
-    screen: ScreenNames.numbersExerciseScreen,
-  },
-  //   { id: 3, imageSource: , heading: "Maths" },
-  {
-    id: 4,
-    imageSource: images.shapes.shapesGroup,
-    heading: 'Shapes',
-    screen: ScreenNames.shapesExerciseScreen,
-  },
-  {
-    id: 5,
-    imageSource: images.animals.animalsGroup,
-    heading: 'Animals',
-    screen: ScreenNames.animalsExerciseScreen,
-  },
-  {
-    id: 6,
-    imageSource: images.games.gamingKidsGroup,
-    heading: 'Games',
-    screen: ScreenNames.kidsGameExerciseScreen,
-  },
-];
+import {navigate} from '../../navigationHandler/navigationRef';
+import {MainExerciseData} from '../../utils/mainExerciseData';
+import SelectionContainer from '../atoms/selectionContainer';
 
 const ScrollableSelectionList = () => {
   const renderItem = ({item, index}) => (
@@ -57,10 +21,8 @@ const ScrollableSelectionList = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={data}
-        contentContainerStyle={{
-          marginInline: rwp(20),
-        }}
+        data={MainExerciseData}
+        contentContainerStyle={styles.contentContainer}
         renderItem={renderItem}
         keyExtractor={item => item.id.toString()}
         showsVerticalScrollIndicator={false}
@@ -72,6 +34,10 @@ const ScrollableSelectionList = () => {
 const styles = StyleSheet.create({
   container: {
     marginBottom: rhp(180),
+  },
+  contentContainer: {
+    marginInline: rwp(10),
+    paddingBottom: rhp(150),
   },
 });
 

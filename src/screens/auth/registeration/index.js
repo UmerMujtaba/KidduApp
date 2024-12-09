@@ -9,6 +9,7 @@ import {ScreenNames} from '../../../constants/strings';
 import {useKeyboard} from '../../../hooks';
 import {navigate} from '../../../navigationHandler/navigationRef';
 import {styles} from './styles';
+import FastImage from 'react-native-fast-image';
 
 const SignUpScreen = () => {
   const keyboardStatus = useKeyboard();
@@ -24,7 +25,7 @@ const SignUpScreen = () => {
       />
       {!keyboardStatus && (
         <View style={{flex: 1, justifyContent: 'flex-end'}}>
-          <Image source={images.cubImage} style={styles.imgStyle} />
+          <FastImage source={images.cubImage} style={styles.imgStyle} />
         </View>
       )}
       {/* </View> */}

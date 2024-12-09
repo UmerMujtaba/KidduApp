@@ -10,6 +10,7 @@ import {Strings} from '../../../constants/strings';
 import {styles} from './styles';
 // import {requestSoundRecordingPermissions} from '../../../permissions/soundRecordingPermission';
 import {useSpeechToText} from '../../../hooks';
+import FastImage from 'react-native-fast-image';
 
 const AlphabetsExerciseMain = ({route}) => {
   const {letterData} = route.params;
@@ -127,7 +128,10 @@ const AlphabetsExerciseMain = ({route}) => {
             progress={progress}
           />
           <View style={styles.imgContainer}>
-            <Image source={currentExercise.image} style={styles.imgStyle} />
+            <FastImage
+              source={{uri: currentExercise.image}}
+              style={styles.imgStyle}
+            />
           </View>
           <Text style={styles.letterText}>{letterData.letter}</Text>
           <Text style={styles.itemName}>{currentExercise.name}</Text>

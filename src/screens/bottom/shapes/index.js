@@ -28,7 +28,7 @@ const ShapesScreen = () => {
     return (
       <AlphabetComponent
         letter={letter}
-        imageSource={image}
+        URI={image}
         soundFile={''}
         playingSound={''}
         setPlayingSound={''}

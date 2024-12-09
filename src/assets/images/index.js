@@ -10,77 +10,120 @@ export const images = {
   elephantBook: require('./elephantBook.png'),
 
   alphabets: {
-    a: require('./alphabets/a.png'),
-    alphabetsGroup: require('./alphabets/alphabetsgroup.jpg'),
+    a: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738566/alphabetsImages/ki7tk1bwo9nb5ibmfuv2.png',
+    alphabetsGroup:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738565/alphabetsImages/q7ltbr08eeicetnde2ty.jpg',
 
-    aligator: require('./alphabets/aligator.png'),
-    bear: require('./alphabets/bear.png'),
-    cat: require('./alphabets/cat.png'),
-    dog: require('./alphabets/dog.png'),
-    elephant: require('./alphabets/elephant.png'),
-    fox: require('./alphabets/fox.png'),
-    girafe: require('./alphabets/girafe.png'),
-    horse: require('./alphabets/horse.png'),
-    iguana: require('./alphabets/iguana.png'),
-    jaguar: require('./alphabets/jaguar.png'),
-    kangroo: require('./alphabets/kangroo.png'),
-    lion: require('./alphabets/lion.png'),
-    monkey: require('./alphabets/monkey.png'),
-    nshark: require('./alphabets/nshark.png'),
-    octopus: require('./alphabets/octopus.png'),
-    penguin: require('./alphabets/penguin.png'),
-    quirl: require('./alphabets/quirl.png'),
-    rabit: require('./alphabets/rabit.png'),
-    snake: require('./alphabets/snake.png'),
-    tiger: require('./alphabets/tiger.png'),
-    unicorn: require('./alphabets/unicorn.png'),
-    vulture: require('./alphabets/vulture.png'),
-    whale: require('./alphabets/whale.png'),
-    xrayfish: require('./alphabets/xray.png'),
-    yak: require('./alphabets/yak.png'),
-    zebra: require('./alphabets/zebra.png'),
+    aligator:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738566/alphabetsImages/bd7hjf5y1aur2uyuk7yi.png',
+    bear: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738565/alphabetsImages/gtfdrvd05ig92jiix8vs.png',
+    cat: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738565/alphabetsImages/hgr7pqtf48iuueyfvlim.png',
+    dog: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738565/alphabetsImages/g0klzdobul3xgodtxl1m.png',
+    elephant:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738565/alphabetsImages/lpgmycnwi6u80otoijlz.png',
+    fox: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738565/alphabetsImages/p5ai0kzb6rragpngmich.png',
+    girafe:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738565/alphabetsImages/dz49gvtpg0cszpbvgmsv.png',
+    horse:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738565/alphabetsImages/iz9518yw0uwolrfm2fbq.png',
+    iguana:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738564/alphabetsImages/uvmgvgmdjajgdexyo71r.png',
+    jaguar:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738564/alphabetsImages/coxeva82rwhccuxm3b67.png',
+    kangroo:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738564/alphabetsImages/m1rbtm5yv3ordf2qjlb6.png',
+    lion: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738564/alphabetsImages/jyw1s6skn18iunpaqf66.png',
+    monkey:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738564/alphabetsImages/dobnihc3fd2ktgzgpaxp.png',
+    nshark:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738564/alphabetsImages/eibbcaoafw8vchlp9ap9.png',
+    octopus:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738564/alphabetsImages/jjmewjqztgg0zr4j9xhn.png',
+    penguin:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738564/alphabetsImages/lduvooogusydsaj3jusl.png',
+    quirl:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738563/alphabetsImages/ipytpnisefaobtcrswjq.png',
+    rabit:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738563/alphabetsImages/xtpgp14rgbrnybahljmb.png',
+    snake:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738563/alphabetsImages/uca6cihjd51lpdklimak.png',
+    tiger:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738563/alphabetsImages/y1tw4ufwohxtvoj9slwb.png',
+    unicorn:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738563/alphabetsImages/uqqncb6ztuyjbnrapcwz.png',
+    vulture:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738563/alphabetsImages/hba8u8aodk8njprneda9.png',
+    whale:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738563/alphabetsImages/mwodtnwkvundarvs0rtj.png',
+    xrayfish:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738563/alphabetsImages/wecuyb7k5xktiyljwtaw.png',
+    yak: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738562/alphabetsImages/ukqinq3rtoopnh3lxmkw.png',
+    zebra:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738562/alphabetsImages/j2cxjarkikv0cui3hcz2.png',
   },
 
   numbers: {
-    one: require('./numbers/one.png'),
-    numbersGroup: require('./numbers/numbersgroup.jpg'),
-    numOne: require('./numbers/numOne.png'),
-    numOne: require('./numbers/numOne.png'),
-    numTwo: require('./numbers/numTwo.png'),
-    numThree: require('./numbers/numThree.png'),
-    numFour: require('./numbers/numFour.png'),
-    numFive: require('./numbers/numFive.png'),
-    numSix: require('./numbers/numSix.png'),
-    numSeven: require('./numbers/numSeven.png'),
-    numEight: require('./numbers/numEight.png'),
-    numNine: require('./numbers/numNine.png'),
-    numTen: require('./numbers/numTen.png'),
+    one: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737733/numbersImages/mvmn1dpcy2yvoweilcmb.png',
+    numbersGroup:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737727/numbersImages/c8wlwwhvqsds7m7kh2vd.jpg',
+    numOne:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737729/numbersImages/knzunscf25gzvdbvb3b1.png',
+    numTwo:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737732/numbersImages/wanywi17vjvskwzyav9t.png',
+    numThree:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737731/numbersImages/xmyiugyj1cahuptt9vlc.png',
+    numFour:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737728/numbersImages/mjz1lmxvtas7mln5kpfr.png',
+    numFive:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737729/numbersImages/ctppywad4v3ubfwb1mmu.png',
+    numSix:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737730/numbersImages/t6m80vuxt8ilsokbm1kq.png',
+    numSeven:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737731/numbersImages/a6gw5dt5yzcn3796xukp.png',
+    numEight:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737729/numbersImages/ge2z9tmzmxxj7pcd1myb.png',
+    numNine:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737729/numbersImages/jh94zgdiuxkovzvs1lya.png',
+    numTen:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737731/numbersImages/ws1g6qpwtreru14vvqrs.png',
   },
 
   operations: {
-    multiply: require('./operations/multiply.png'),
+    multiply:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733743017/operationsImages/jxzrs0idwp5xsvlxwkbp.png',
   },
 
   shapes: {
-    circle: require('./shapes/circle.png'),
-    shapesGroup: require('./shapes/shapesgroup.png'),
-    circular: require('./shapes/circular.png'),
-    hexagon: require('./shapes/hexagon.png'),
-    pentagon: require('./shapes/pentagon.png'),
-    square: require('./shapes/square.png'),
-    rectangle: require('./shapes/rectangle.png'),
-    triangle: require('./shapes/triangle.png'),
-    kite: require('./shapes/kite.png'),
+    circular:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742815/shapesImages/m108twrdh0zbfpi4zwfh.png',
+    shapesGroup:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742817/shapesImages/rkg30xptyc7xmhmzcrar.png',
+    circle:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742816/shapesImages/n2davsespdjgpqxxjkck.png',
+    hexagon:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742816/shapesImages/w3rxdtkmq38dbbabfcnw.png',
+    pentagon:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742816/shapesImages/trad0ovqy2qoat3vuonw.png',
+    square:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742816/shapesImages/hsjp7l3xbmogkr6hbfcn.png',
+    rectangle:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742816/shapesImages/wbub3a6f9edn3gjg8uwi.png',
+    triangle:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742815/shapesImages/a87xx0mqijmksfqowrkf.png',
+    kite: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742815/shapesImages/agaz8jcw1v5soqnsbach.png',
   },
 
   animals: {
-    // cat: require('./animals/cat.png'),
-    animalsGroup: require('./animals/animalsgroup.png'),
+    cat: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738558/alphabetsImages/c/tplnwi5q6yntd8xwssev.jpg',
+    animalsGroup:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733743056/animalsImages/ww3gt90kpfddqjwy9axn.jpg',
   },
 
   games: {
-    captainAmerica: require('./games/captain-america.png'),
-    gamingKidsGroup: require('./games/kidsgroup.png'),
+    captainAmerica:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733743097/gamesImages/fex9yw8qmuxbhzs94ccp.webp',
+    gamingKidsGroup:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733749845/gamesImages/xgts4kih3porhdf8c3fr.jpg',
   },
   icons: {
     homeIcon: require('./icons/homeicon.png'),
@@ -96,223 +139,298 @@ export const images = {
   },
 
   letterA: {
-    apple: require('./alphabets/a/apple.png'),
-    aligator: require('./alphabets/a/aligator.png'),
-    axe: require('./alphabets/a/axe.png'),
-    arrow: require('./alphabets/a/arrow.png'),
-    ape: require('./alphabets/a/ape.png'),
-    axe: require('./alphabets/a/axe.png'),
-    ambulance: require('./alphabets/a/ambulance.png'),
-    aunt: require('./alphabets/a/aunt.png'),
-    angel: require('./alphabets/a/angel.png'),
-    airplane: require('./alphabets/a/airplane.png'),
-    arm: require('./alphabets/a/arm.png'),
+    apple:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738562/alphabetsImages/a/yejpdwse9q151jkw11gi.jpg',
+    aligator:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738562/alphabetsImages/a/mqshsbgicvu5bqvi2zrd.webp',
+    axe: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738562/alphabetsImages/a/l4fiajasrvhqwtmol0yg.webp',
+    arrow:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738562/alphabetsImages/a/myramukpkmtumzmiod0m.webp',
+    ape: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738562/alphabetsImages/a/kwktotvjyqv8xhoiffz6.webp',
+    ambulance:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738561/alphabetsImages/a/gd9y1n75kyqxbqdjtqwn.webp',
+    aunt: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738561/alphabetsImages/a/eyt6hbets3txygrooxe0.webp',
+    angel:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738562/alphabetsImages/a/wmgvezsrpvvujgg8ox6m.webp',
+    airplane:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738562/alphabetsImages/a/bra0qitjm5jaa5wxbkka.webp',
+    arm: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738561/alphabetsImages/a/v9iglpcplouo4qay6ysi.webp',
   },
 
   letterB: {
-    bat: require('./alphabets/b/bat.jpeg'),
-    ball: require('./alphabets/b/ball.jpeg'),
-    bus: require('./alphabets/b/bus.jpeg'),
-    bread: require('./alphabets/b/bread.jpeg'),
-    brain: require('./alphabets/b/brain.jpeg'),
-    bag: require('./alphabets/b/bag.jpeg'),
-    bunny: require('./alphabets/b/bunny.jpeg'),
-    banana: require('./alphabets/b/banana.jpeg'),
-    bear: require('./alphabets/b/bear.jpeg'),
-    ballon: require('./alphabets/b/ballon.jpeg'),
-    baby: require('./alphabets/b/baby.jpeg'),
-    book: require('./alphabets/b/book.jpeg'),
+    bat: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738560/alphabetsImages/b/vilyhkmytwjx5ykkpq4r.jpg',
+    ball: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738559/alphabetsImages/b/dg6wijzksiuc78nnf2ys.jpg',
+    bus: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738559/alphabetsImages/b/dmdwexat7xvtk58lngax.jpg',
+    bread:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738560/alphabetsImages/b/libxopq4xwtocqhrjioc.jpg',
+    brain:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738560/alphabetsImages/b/xmvlqvoxyw6tu7bs0plc.jpg',
+    bag: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738560/alphabetsImages/b/libxopq4xwtocqhrjioc.jpg',
+    bunny:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738561/alphabetsImages/b/jhvpazme6efamslldyvv.jpg',
+    banana:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738559/alphabetsImages/b/uur1oaa5ekrvfwkuu4cw.jpg',
+    bear: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738560/alphabetsImages/b/q4vdlkr2om27fcuds4v6.jpg',
+    ballon:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738559/alphabetsImages/b/ncbstduxzb3qzvy0zlpa.jpg',
+    baby: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738560/alphabetsImages/b/ulhuzhxgrm16xqg3bkr4.jpg',
+    book: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738559/alphabetsImages/b/twhuzcgj58by7buouiae.jpg',
   },
 
   letterC: {
-    cat: require('./alphabets/c/cat.jpeg'),
-    car: require('./alphabets/c/car.jpeg'),
-    carrot: require('./alphabets/c/carrot.jpeg'),
-    clock: require('./alphabets/c/clock.jpeg'),
-    cow: require('./alphabets/c/cow.jpeg'),
-    cap: require('./alphabets/c/cap.jpeg'),
-    cake: require('./alphabets/c/cake.jpeg'),
-    clouds: require('./alphabets/c/cloud.jpeg'),
-    comb: require('./alphabets/c/comb.jpeg'),
+    cat: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738558/alphabetsImages/c/tplnwi5q6yntd8xwssev.jpg',
+    car: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738559/alphabetsImages/c/blydpuftbz77j8nwk647.jpg',
+    carrot:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738559/alphabetsImages/c/xsj6eap6zyate0ca9cde.jpg',
+    clock:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738558/alphabetsImages/c/athlzef4oq4hadnn97ms.jpg',
+    cow: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738558/alphabetsImages/c/jbdxiet9kz92zaqcle3z.jpg',
+    cap: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738558/alphabetsImages/c/nq7pdfo0emy8zdyhllgv.jpg',
+    cake: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738559/alphabetsImages/c/hr2xtrnrbw4zwdmxoydc.jpg',
+    clouds:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738558/alphabetsImages/c/nbxrba0qs3eehcjdthr4.jpg',
+    comb: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738558/alphabetsImages/c/rpyfab17pos4pw6otk62.jpg',
   },
 
   letterD: {
-    duck: require('./alphabets/d/duck.jpeg'),
-    door: require('./alphabets/d/door.jpeg'),
-    deer: require('./alphabets/d/deer.jpeg'),
-    dog: require('./alphabets/d/dog.jpeg'),
-    dolphin: require('./alphabets/d/dolphin.jpeg'),
-    dress: require('./alphabets/d/dress.jpeg'),
-    drum: require('./alphabets/d/drum.jpeg'),
-    dragon: require('./alphabets/d/dragon.jpeg'),
+    duck: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738557/alphabetsImages/d/bgam1vamgnhbao0us2xb.jpg',
+    door: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738558/alphabetsImages/d/njj7kw9vhxgmjod38nwq.jpg',
+    deer: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738556/alphabetsImages/d/m4e4dpctupiujokluflp.jpg',
+    dog: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738557/alphabetsImages/d/qqedjsrvfanvvsze9ypa.jpg',
+    dolphin:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738556/alphabetsImages/d/xpnpuorl0rhtfioavbjp.jpg',
+    dress:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738557/alphabetsImages/d/fck2jwipnvkv1gnzbrv3.jpg',
+    drum: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738557/alphabetsImages/d/clevgfe332z95zvcyrtt.jpg',
+    dragon:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738557/alphabetsImages/d/gltzs85rskeyz9ksijbt.jpg',
   },
 
   letterE: {
-    eagle: require('./alphabets/e/eagle.jpeg'),
-    elf: require('./alphabets/e/elf.jpeg'),
-    eye: require('./alphabets/e/eye.jpeg'),
-    earth: require('./alphabets/e/earth.jpeg'),
-    elephant: require('./alphabets/e/elephant.jpeg'),
-    egg: require('./alphabets/e/egg.jpeg'),
-    ear: require('./alphabets/e/ear.jpeg'),
+    eagle:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738556/alphabetsImages/e/hb1cfqy0tnybtjd3luce.jpg',
+    elf: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738556/alphabetsImages/e/bkjghsnyn22yfitx5ote.jpg',
+    eye: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738555/alphabetsImages/e/dmfr2uj0zpmhwc6afz9k.jpg',
+    earth:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738555/alphabetsImages/e/glxoaatit6xoceumx2uq.jpg',
+    elephant:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738556/alphabetsImages/e/ylrzffte0mbvhabqopqn.jpg',
+    egg: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738556/alphabetsImages/e/ebhzdiekaoyihjjzmkea.jpg',
+    ear: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738556/alphabetsImages/e/jq39mmcww4olgwfwkd2y.jpg',
   },
 
   letterF: {
-    fan: require('./alphabets/f/fan.jpeg'),
-    flower: require('./alphabets/f/flower.jpeg'),
-    flag: require('./alphabets/f/flag.jpeg'),
-    fork: require('./alphabets/f/fork.jpeg'),
-    frog: require('./alphabets/f/frog.jpeg'),
-    feet: require('./alphabets/f/feet.jpeg'),
+    fan: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738554/alphabetsImages/f/pmucsjzg8atkxwstuifq.jpg',
+    flower:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738555/alphabetsImages/f/jameej64mzrtncsdrwzt.jpg',
+    flag: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738555/alphabetsImages/f/qjnyvjtutazpbx7vd6ai.jpg',
+    fork: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738555/alphabetsImages/f/lyhohhx3xyxppuufofrj.jpg',
+    frog: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738555/alphabetsImages/f/zfqpmxsw83p7xkynqm7q.jpg',
+    feet: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738555/alphabetsImages/f/c4qfrh5hqcjacpqxxkbf.jpg',
   },
 
   letterG: {
-    gate: require('./alphabets/g/gate.jpeg'),
-    giraffe: require('./alphabets/g/giraffe.jpeg'),
-    girl: require('./alphabets/g/girl.jpeg'),
-    glasses: require('./alphabets/g/glasses.jpeg'),
-    goat: require('./alphabets/g/goat.jpeg'),
-    grape: require('./alphabets/g/grapes.jpeg'),
-    goose: require('./alphabets/g/goose.jpeg'),
+    gate: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738554/alphabetsImages/g/augdsez1psg6cbdohhpg.jpg',
+    giraffe:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738554/alphabetsImages/g/m0poqhx0l31zxvq6ukja.jpg',
+    girl: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738554/alphabetsImages/g/fim26jwbhns6hmyo8dzo.jpg',
+    glasses:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738555/alphabetsImages/g/vvdff4veutiyaueevx5b.jpg',
+    goat: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738554/alphabetsImages/g/vnbnlraiqijzhvs3eoux.jpg',
+    grape:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738554/alphabetsImages/g/hmuxconweth5sltg8w2q.jpg',
+    goose:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738554/alphabetsImages/g/xw7dvjzhw3e9iak45mr1.jpg',
   },
   letterH: {
-    hen: require('./alphabets/h/hen.jpeg'),
-    hat: require('./alphabets/h/hat.jpeg'),
-    house: require('./alphabets/h/house.jpeg'),
-    horse: require('./alphabets/h/horse.jpeg'),
-    hammer: require('./alphabets/h/hammer.jpeg'),
-    honey: require('./alphabets/h/honey.jpeg'),
+    hen: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738553/alphabetsImages/h/t7gxelkmzpz3d0fiigf1.jpg',
+    hat: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738553/alphabetsImages/h/o884sfi6bkdlztru8h8x.jpg',
+    house:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738553/alphabetsImages/h/x10oip07ziwl8poktufb.jpg',
+    horse:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738553/alphabetsImages/h/zjjwj9vzw3emhent8vha.jpg',
+    hammer:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738553/alphabetsImages/h/arj6kv7mqhyo8rkmf7o5.jpg',
+    honey:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738553/alphabetsImages/h/moewxljzbj5deoqrw8bp.jpg',
   },
 
   letterI: {
-    ice: require('./alphabets/i/ice.jpeg'),
-    iceCream: require('./alphabets/i/icecream.jpeg'),
-    igloo: require('./alphabets/i/igloo.jpeg'),
-    ink: require('./alphabets/i/ink.jpeg'),
+    ice: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738553/alphabetsImages/i/y0kxrzcg15hmchrhduzx.jpg',
+    iceCream:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738552/alphabetsImages/i/x60dlwzjmlukapusqzrg.jpg',
+    igloo:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738553/alphabetsImages/i/y0kxrzcg15hmchrhduzx.jpg',
+    ink: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738552/alphabetsImages/i/lnmphj1mdw0h8owiqfyd.jpg',
   },
 
   letterJ: {
-    jar: require('./alphabets/j/jar.jpeg'),
-    jug: require('./alphabets/j/jug.jpeg'),
-    jet: require('./alphabets/j/jet.jpeg'),
-    jeep: require('./alphabets/j/jeep.jpeg'),
-    jaguar: require('./alphabets/j/jaguar.jpeg'),
-    jackal: require('./alphabets/j/jackal.jpeg'),
-    jelly: require('./alphabets/j/jelly.jpeg'),
+    jar: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738552/alphabetsImages/j/jyeiqflzkk9ytzbhcqo5.jpg',
+    jug: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/j/ptiqlwoi1hfhxus6pwfc.jpg',
+    jet: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738552/alphabetsImages/j/dpnp4pzlbbxtnyw6piwd.jpg',
+    jeep: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738552/alphabetsImages/j/stx6finvszsdmgwvmcdp.jpg',
+    jackal:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738552/alphabetsImages/j/eyozrjiovykur0ymkah7.jpg',
+    jaguar:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/j/qyjsszhjh5acn76piju8.jpg',
+    jelly:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738552/alphabetsImages/j/kjddcnfcbbr9ttuwdmp1.jpg',
   },
 
   letterK: {
-    kite: require('./alphabets/k/kites.jpeg'),
-    kid: require('./alphabets/k/kids.jpeg'),
-    knife: require('./alphabets/k/knife.jpeg'),
-    kitten: require('./alphabets/k/kitten.jpeg'),
-    kangaroo: require('./alphabets/k/kangaroo.jpeg'),
+    kite: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/k/sp6ytz15pcro1ycpjg6h.jpg',
+    kid: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/k/bbyj8v4dnzyhthy5qpdd.jpg',
+    knife:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/k/knha67hgorrlteznpcis.jpg',
+    kitten:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/k/hcpy3lqvyz0dycrgfzgb.jpg',
+    kangaroo:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/k/iay31ddwkeonznwq6ibt.jpg',
   },
 
   letterL: {
-    lamp: require('./alphabets/l/lamp.jpeg'),
-    lion: require('./alphabets/l/lion.jpeg'),
-    log: require('./alphabets/l/logs.jpeg'),
-    leopard: require('./alphabets/l/leopard.jpeg'),
-    ladder: require('./alphabets/l/ladder.jpeg'),
-    leaf: require('./alphabets/l/leaf.jpeg'),
+    lamp: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/l/n3xffryvuwut5vzbfzbx.jpg',
+    lion: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/l/y7nphdzrubdwthg2q4fj.jpg',
+    log: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/l/lka0ty9v48fjmtn31g3c.jpg',
+    leopard:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738550/alphabetsImages/l/vx3pjtbk8dmgvghmnmqx.jpg',
+    ladder:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738551/alphabetsImages/l/bj0vxghfqtlkldredxk8.jpg',
+    leaf: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738550/alphabetsImages/l/y60pqmrpiroks0koy0tb.jpg',
   },
   letterM: {
-    monkey: require('./alphabets/m/monkey.jpeg'),
-    mango: require('./alphabets/m/mango.jpeg'),
-    mat: require('./alphabets/m/mat.jpeg'),
-    moon: require('./alphabets/m/moon.jpeg'),
-    mug: require('./alphabets/m/mug.jpeg'),
+    monkey:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738550/alphabetsImages/m/f5vkfx5hqqgnbfdoe9mr.jpg',
+    mango:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738550/alphabetsImages/m/kzjlftyhlgdb2dqrtp6n.jpg',
+    mat: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738550/alphabetsImages/m/z3hzz5jyxconzjgiznuy.jpg',
+    moon: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738549/alphabetsImages/m/pvg3uklb43ue9oect2jv.jpg',
+    mug: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738550/alphabetsImages/m/n8umnqrlojsw1yzmc4ws.jpg',
   },
 
   letterN: {
-    nail: require('./alphabets/n/nail.jpeg'),
-    nose: require('./alphabets/n/nose.jpeg'),
-    nurse: require('./alphabets/n/nurse.jpeg'),
-    needle: require('./alphabets/n/needle.jpeg'),
-    necklace: require('./alphabets/n/necklace.jpeg'),
+    nail: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738549/alphabetsImages/n/jbueg6k0gnygi73zakhj.jpg',
+    nose: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738549/alphabetsImages/n/blvwaiw5mumdcymcfpwh.jpg',
+    nurse:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738549/alphabetsImages/n/dpdvff1lxfosofqnkut7.jpg',
+    needle:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738549/alphabetsImages/n/texyodhwbykiwpviizj1.jpg',
+    necklace:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738549/alphabetsImages/n/tuddrilezecky8wxhurv.jpg',
   },
   letterO: {
-    oats: require('./alphabets/o/oats.jpeg'),
-    orange: require('./alphabets/o/orange.jpeg'),
-    oven: require('./alphabets/o/oven.jpeg'),
-    owl: require('./alphabets/o/owl.jpeg'),
-    ostrich: require('./alphabets/o/ostrich.jpeg'),
-    ox: require('./alphabets/o/ox.jpeg'),
+    oats: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738549/alphabetsImages/o/bftnr6raa5qxupvddovg.jpg',
+    orange:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738548/alphabetsImages/o/n4tjkiake8rnv1xlreyu.jpg',
+    oven: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738548/alphabetsImages/o/n02rkuac6fo4hcnxj4cx.jpg',
+    owl: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738549/alphabetsImages/o/rki98xsftux8ed9fcwip.jpg',
+    ostrich:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738548/alphabetsImages/o/zohovutnkmvnxjeqgt4h.jpg',
+    ox: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738548/alphabetsImages/o/rdnqi2ipqix4cwkaqlor.jpg',
   },
   letterP: {
-    pan: require('./alphabets/p/pan.jpeg'),
-    penguin: require('./alphabets/p/penguin.jpeg'),
-    pencil: require('./alphabets/p/pencil.jpeg'),
-    parrot: require('./alphabets/p/parrot.jpeg'),
-    panda: require('./alphabets/p/panda.jpeg'),
-    pear: require('./alphabets/p/pear.jpeg'),
+    pan: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738547/alphabetsImages/p/bk3bw6p3dqiflduurdvk.jpg',
+    penguin:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738548/alphabetsImages/p/vhp2tcskhxgwwc1pu2ic.jpg',
+    pencil:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738548/alphabetsImages/p/fv4cjrj84epkwecasq33.jpg',
+    parrot:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738548/alphabetsImages/p/qmvghmfsqebizdx0n5zy.jpg',
+    panda:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738547/alphabetsImages/p/qsxzcow63dmvrbvhi9ae.jpg',
+    pear: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738547/alphabetsImages/p/a9rurqr75uqwqbsaqbne.jpg',
   },
   letterQ: {
-    queen: require('./alphabets/q/queen.jpeg'),
-    quilt: require('./alphabets/q/quilt.jpeg'),
-    quack: require('./alphabets/q/quack.jpeg'),
-    queue: require('./alphabets/q/queue.jpeg'),
+    quack:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738547/alphabetsImages/q/tlc80odwsp0ot7jblhdo.jpg',
+    quilt:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738548/alphabetsImages/q/zszuurqgqelun6ksy0om.jpg',
+    queen:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738547/alphabetsImages/q/vdjwzyram2l61a2xle5y.jpg',
+    queue:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738547/alphabetsImages/q/bcpvmc8uuo5utojq1uzp.jpg',
   },
 
   letterR: {
-    rose: require('./alphabets/r/rose.jpeg'),
-    ring: require('./alphabets/r/ring.jpeg'),
-    rabbit: require('./alphabets/r/rabbit.jpeg'),
-    rocket: require('./alphabets/r/rocket.jpeg'),
-    rock: require('./alphabets/r/rock.jpeg'),
+    rose: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738546/alphabetsImages/r/vtxhsigzbmtjxqmym80b.jpg',
+    ring: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738547/alphabetsImages/r/h75hjbibjcwfdposdkhs.jpg',
+    rabbit:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738546/alphabetsImages/r/bknhpzq3ajqz2b68neil.jpg',
+    rocket:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738546/alphabetsImages/r/vych8axdqqdhs8pvoxng.jpg',
+    rock: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738546/alphabetsImages/r/ss69gvebcwwqel78ohha.jpg',
   },
   letterS: {
-    salt: require('./alphabets/s/salt.jpeg'),
-    sand: require('./alphabets/s/sand.jpeg'),
-    sea: require('./alphabets/s/sea.jpeg'),
-    snake: require('./alphabets/s/snake.jpeg'),
-    school: require('./alphabets/s/school.jpeg'),
-    shark: require('./alphabets/s/shark.jpeg'),
-    sheep: require('./alphabets/s/sheep.jpeg'),
+    salt: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738546/alphabetsImages/s/lh8ivhyjp4fpunzs1xy4.jpg',
+    sand: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738545/alphabetsImages/s/wappwalu2staz0apw9yt.jpg',
+    sea: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738545/alphabetsImages/s/vjginffqhwo2gzgynjaz.jpg',
+    snake:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738546/alphabetsImages/s/leeo263gbficcjdarrcf.jpg',
+    school:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738546/alphabetsImages/s/sl1xtihz1thkxmbqoa1v.jpg',
+    shark:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738545/alphabetsImages/s/dhlms5p2ixudz68xn0mt.jpg',
+    sheep:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738546/alphabetsImages/s/fsznnudbsk6xp2giqww4.jpg',
   },
   letterT: {
-    tent: require('./alphabets/t/tent.jpeg'),
-    tomato: require('./alphabets/t/tomato.jpeg'),
-    tank: require('./alphabets/t/tank.jpeg'),
-    tractor: require('./alphabets/t/tractor.jpeg'),
-    tiger: require('./alphabets/t/tiger.jpeg'),
-    tree: require('./alphabets/t/tree.jpeg'),
-    turtle: require('./alphabets/t/turtle.jpeg'),
+    tent: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738544/alphabetsImages/t/cwcpsfwt1w6zglrhlgw0.jpg',
+    tomato:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738545/alphabetsImages/t/fxvufdk5yhotbpm8uvhz.jpg',
+    tank: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738544/alphabetsImages/t/rwew6yw8z4tkmkuxolbe.jpg',
+    tractor:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738545/alphabetsImages/t/aq6tgcuiaswg1mx6s4d6.jpg',
+    tiger:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738545/alphabetsImages/t/gyppqqf6q0smpsthzbsx.jpg',
+    tree: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738545/alphabetsImages/t/figvs3nse9b3nrlh85ep.jpg',
+    turtle:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738545/alphabetsImages/t/bqo53ncnu3o40aeutqlr.jpg',
   },
   letterU: {
-    unicorn: require('./alphabets/u/unicorn.jpeg'),
-    umbrella: require('./alphabets/u/umbrella.jpeg'),
-    uncle: require('./alphabets/u/uncle.jpeg'),
+    unicorn:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738544/alphabetsImages/u/tyzl1hu8o21ozh7egvdg.jpg',
+    umbrella:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738544/alphabetsImages/u/nn4nbcffdphrbzspzps6.jpg',
+    uncle:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738544/alphabetsImages/u/ccjs4wliisfpwjbosmzv.jpg',
   },
   letterV: {
-    van: require('./alphabets/v/van.jpeg'),
-    vase: require('./alphabets/v/vase.jpeg'),
-    vulture: require('./alphabets/v/vulture.jpeg'),
-    violin: require('./alphabets/v/violin.jpeg'),
-    village: require('./alphabets/v/village.jpeg'),
+    van: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738542/alphabetsImages/v/afggwarcy1ufbu4gbypc.jpg',
+    vase: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738543/alphabetsImages/v/loqglbfls1cb9p5pzlmu.jpg',
+    vulture:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738542/alphabetsImages/v/gkp18ddlpdgqau8ixazt.jpg',
+    violin:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738544/alphabetsImages/v/gmdjx4qvpmg4uivzdb7s.jpg',
+    village:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738543/alphabetsImages/v/eqycccfjgs6kaetbouhp.jpg',
   },
   letterW: {
-    whale: require('./alphabets/w/whale.jpeg'),
-    wall: require('./alphabets/w/wall.jpeg'),
-    worm: require('./alphabets/w/worm.jpeg'),
-    wolf: require('./alphabets/w/wolf.jpeg'),
-    well: require('./alphabets/w/well.jpeg'),
-    watermelon: require('./alphabets/w/watermelon.jpeg'),
+    whale:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738541/alphabetsImages/w/xpeviwpxcbizkwlebqx4.jpg',
+    wall: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738543/alphabetsImages/w/xldkl12ukxvsrt7zcm6w.jpg',
+    worm: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738544/alphabetsImages/w/uze07tyjjt1wtsgxsd2w.jpg',
+    wolf: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738544/alphabetsImages/w/ytksi3xxyufqatle7fhg.jpg',
+    well: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738544/alphabetsImages/w/ghdk1shb7f8ouyl4nnyg.jpg',
+    watermelon:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738541/alphabetsImages/w/mz3auewswkicqzew7yeo.jpg',
   },
   letterX: {
-    xray: require('./alphabets/x/xray.jpeg'),
-    xylophone: require('./alphabets/x/xylophone.jpeg'),
+    xray: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738543/alphabetsImages/x/arcjthh314rpmuruwkop.jpg',
+    xylophone:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738542/alphabetsImages/x/qfm7gsc4uqjpbeoswcxe.jpg',
   },
   letterY: {
-    yacht: require('./alphabets/y/yacht.jpeg'),
-    yak: require('./alphabets/y/yak.jpeg'),
-    yoyo: require('./alphabets/y/yoyo.jpeg'),
-    yolk: require('./alphabets/y/yolk.jpeg'),
+    yacht:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738541/alphabetsImages/y/kowdjqit2no8vjcr9kgd.jpg',
+    yolk: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738542/alphabetsImages/y/pgbctvzvfttszhcj4ksz.jpg',
+    yoyo: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738543/alphabetsImages/y/ihpwozqtszfbxzbuhyly.jpg',
+    yak: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738542/alphabetsImages/y/ogvjajzeojhqxwyrjfol.jpg',
   },
   letterZ: {
-    zoo: require('./alphabets/z/zoo.jpeg'),
-    zebra: require('./alphabets/z/zebra.jpeg'),
-    zipper: require('./alphabets/z/zipper.jpeg'),
+    zoo: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738541/alphabetsImages/z/emerlw8qkrmaermsatjy.jpg',
+    zebra:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738541/alphabetsImages/z/yqd7lftcrfrj8hrcfjaf.jpg',
+    zipper:
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738541/alphabetsImages/z/ehzc2ygxyvthrxb2n6hm.jpg',
   },
 };

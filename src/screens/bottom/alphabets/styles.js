@@ -16,4 +16,9 @@ export const styles = StyleSheet.create({
     paddingVertical: rhp(20),
     paddingBottom: rhp(100),
   },
+  loaderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

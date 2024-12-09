@@ -3,6 +3,7 @@ import React from 'react';
 import {rfs, rhp, rwp} from '../../constants/dimensions';
 import {colors} from '../../constants/colors';
 import fonts from '../../constants/fonts';
+import FastImage from 'react-native-fast-image';
 
 const ExerciseLessonComponent = ({
   heading,
@@ -22,7 +23,7 @@ const ExerciseLessonComponent = ({
           <Text style={styles.heading}>Bar</Text>
         </View>
 
-        <Image source={imageSource} style={styles.imgStyle} />
+        <FastImage source={{uri: imageSource}} style={styles.imgStyle} />
       </View>
     </TouchableOpacity>
   );

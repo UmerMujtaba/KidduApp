@@ -3,6 +3,8 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {colors} from '../../constants/colors';
 import {rfs, rhp, wp} from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
+import FastImage from 'react-native-fast-image';
+import {images} from '../../assets/images';
 
 const SelectionContainer = ({
   imageSource,
@@ -22,7 +24,10 @@ const SelectionContainer = ({
       {isEven ? (
         <>
           <View style={styles.imageWrapper}>
-            <Image source={imageSource} style={[styles.imgStyle, imageStyle]} />
+            <FastImage
+              source={{uri: imageSource}}
+              style={[styles.imgStyle, imageStyle]}
+            />
           </View>
           <View style={styles.textWrapper}>
             <Text style={[styles.txtStyle, textStyle]}>{heading}</Text>
@@ -34,7 +39,10 @@ const SelectionContainer = ({
             <Text style={[styles.txtStyle, textStyle]}>{heading}</Text>
           </View>
           <View style={styles.imageWrapper}>
-            <Image source={imageSource} style={[styles.imgStyle, imageStyle]} />
+            <FastImage
+              source={{uri: imageSource}}
+              style={[styles.imgStyle, imageStyle]}
+            />
           </View>
         </>
       )}

@@ -4,7 +4,6 @@ import {images} from '../../../assets/images';
 import CustomAppBar from '../../../components/atoms/customAppBar';
 import ExampleScreen from '../../../components/molecules/exerciseComponent';
 import {styles} from './styles';
-import {rwp} from '../../../constants/dimensions';
 
 const AlphabetsExercise = () => {
   return (
@@ -12,8 +11,6 @@ const AlphabetsExercise = () => {
       <CustomAppBar title={'Alphabets'} questionMark />
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
-          {/* <ExerciseSetHeader /> */}
-
           <ExampleScreen exerciseType="alphabet" Data />
         </View>
       </View>

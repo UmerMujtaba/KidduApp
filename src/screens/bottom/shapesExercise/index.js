@@ -20,6 +20,7 @@ import {styles} from './styles';
 import {TouchableButton} from '../../../components/atoms/button';
 import {wp} from '../../../constants/dimensions';
 import ExerciseHeader from '../../../components/atoms/exerciseHeader';
+import FastImage from 'react-native-fast-image';
 
 const ShapesExercise = () => {
   const progressAnim = useState(new Animated.Value(1))[0];
@@ -159,8 +160,8 @@ const ShapesExercise = () => {
             {/* Display the question */}
             <View style={styles.imgContainerBorder}>
               <View style={styles.imgContainer}>
-                <Image
-                  source={randomShapes[0]?.image}
+                <FastImage
+                  source={{uri: randomShapes[0]?.image}}
                   style={styles.imgStyle}
                 />
               </View>
@@ -193,7 +194,10 @@ const ShapesExercise = () => {
                           : colors.lightRed,
                       },
                     ]}>
-                    <Image source={shape.image} style={styles.optImage} />
+                    <FastImage
+                      source={{uri: shape.image}}
+                      style={styles.optImage}
+                    />
                   </View>
                 </TouchableOpacity>
               ))}
@@ -219,7 +223,7 @@ const ShapesExercise = () => {
         statusBarTranslucent={true}>
         <TouchableOpacity style={styles.modalBackground} onPress={closeModal}>
           <View style={styles.modalContainer}>
-            <Image source={images.rewardHat} style={styles.modalImg} />
+            <FastImage source={images.rewardHat} style={styles.modalImg} />
             <Text style={styles.modalMessage}>{Strings.goodJob}</Text>
             <Text style={styles.modalSubMsg}>
               {Strings.unlockedYourNewReward}

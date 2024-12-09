@@ -15,6 +15,7 @@ export const Strings = {
   congrats: 'Congrats!',
   youUnlockedNewReward: 'You are rewarded with 1 magic reward',
   howMany: 'How many items?',
+  canYouChooseTheCorrect: 'Can you choose the correct animal?',
 };
 
 export const ScreenNames = {

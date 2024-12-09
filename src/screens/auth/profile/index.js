@@ -28,11 +28,6 @@ const ProfileScreen = () => {
         btnPropStyle={{marginTop: 40}}
         onPress={() => navigate(ScreenNames.interestScreen)}
       />
-      {/* 
-            <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                <Image source={images.cubImage} style={styles.imgStyle} />
-            </View> */}
-      {/* </View> */}
     </ImageBackground>
   );
 };
