@@ -4,8 +4,9 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
 import {SoundProvider} from './src/contextAPI/soundsContext';
 import {NavigationHandler} from './src/navigationHandler';
-import {LoaderProvider} from './src/contextAPI/loaderProvider';
-// import {store} from './src/redux/loaderSlice/store';
+import {LoaderProvider} from './src/contextAPI';
+// import store from './src/redux/store';
+import {Provider} from 'react-redux';
 
 const App = () => {
   useEffect(() => {

@@ -5,10 +5,12 @@ import {navigationRef} from './navigationRef';
 import Auth from './authStack';
 import {ScreenNames} from '../constants/strings';
 import Bottom from './bottomStack';
-import AlphabetsExerciseMain from '../screens/bottom/alphabetExerciseMain';
-import ShapesExercise from '../screens/bottom/shapesExercise';
-import NumbersExercise from '../screens/bottom/numbersExercise';
-import AnimalsExercise from '../screens/bottom/animalsExercise';
+import ShapesExercise from '../screens/bottom/exerciseScreens/shapesExercise';
+import NumbersExercise from '../screens/bottom/exerciseScreens/numbersExercise';
+import AnimalsExercise from '../screens/bottom/exerciseScreens/animalsExercise';
+import AlphabetsExercise from '../screens/bottom/exerciseScreens/alphabetExercise';
+import AlphabetsExerciseMain from '../screens/bottom/exerciseScreens/alphabetExerciseMain';
+import KidsGameExercise from '../screens/bottom/exerciseScreens/kidsGameExercise';
 
 const NavigationStack = createNativeStackNavigator();
 
@@ -28,8 +30,8 @@ export const NavigationHandler = () => {
           options={{headerShown: false}}
         />
         <NavigationStack.Screen
-          name={ScreenNames.alphabetExerciseMainScreen}
-          component={AlphabetsExerciseMain}
+          name={ScreenNames.alphabetExerciseScreen}
+          component={AlphabetsExercise}
           options={{headerShown: false}}
         />
         <NavigationStack.Screen
@@ -45,6 +47,16 @@ export const NavigationHandler = () => {
         <NavigationStack.Screen
           name={ScreenNames.animalsExerciseScreen}
           component={AnimalsExercise}
+          options={{headerShown: false}}
+        />
+        <NavigationStack.Screen
+          name={ScreenNames.alphabetExerciseMainScreen}
+          component={AlphabetsExerciseMain}
+          options={{headerShown: false}}
+        />
+        <NavigationStack.Screen
+          name={ScreenNames.kidsGameExerciseScreen}
+          component={KidsGameExercise}
           options={{headerShown: false}}
         />
       </NavigationStack.Navigator>

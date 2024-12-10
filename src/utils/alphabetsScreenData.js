@@ -251,7 +251,7 @@ export const alphabetData = [
       {name: 'Ox', image: images.letterO.ox},
       {name: 'Ostrich', image: images.letterO.ostrich},
       {name: 'Oven', image: images.letterO.oven},
-      {name: 'Orange', image: images.letterO.ostrich},
+      {name: 'Orange', image: images.letterO.orange},
       {name: 'Oats', image: images.letterO.oats},
     ],
   },

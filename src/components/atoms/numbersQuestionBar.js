@@ -8,7 +8,7 @@ import fonts from '../../constants/fonts';
 import Tts from 'react-native-tts';
 import FastImage from 'react-native-fast-image';
 
-const NumbersQuestionBar = ({title}) => {
+const NumbersQuestionBar = ({title, name}) => {
   const handleSpeakerPress = () => {
     Tts.speak(title);
     Tts.setDefaultVoice('com.apple.speech.synthesis.voice.Albert');

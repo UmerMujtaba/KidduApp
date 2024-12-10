@@ -1,12 +1,9 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {ScreenNames} from '../../constants/strings';
-import AlphabetsExercise from '../../screens/bottom/alphabetExercise';
-import AnimalsExercise from '../../screens/bottom/animalsExercise';
 import GamesScreen from '../../screens/bottom/games';
-import NumbersExercise from '../../screens/bottom/numbersExercise';
-import ShapesExercise from '../../screens/bottom/shapesExercise';
-import KidsGameExercise from '../../screens/bottom/kidsGameExercise';
+import AlphabetsExerciseMain from '../../screens/bottom/exerciseScreens/alphabetExerciseMain';
+import KidsGameExercise from '../../screens/bottom/exerciseScreens/kidsGameExercise';
 
 const GameStack = createNativeStackNavigator();
 
@@ -23,17 +20,6 @@ const GameNavigator = () => {
       <GameStack.Screen
         name={ScreenNames.gameScreen}
         component={GamesScreen}
-        options={navigationOptions}
-      />
-      <GameStack.Screen
-        name={ScreenNames.alphabetExerciseScreen}
-        component={AlphabetsExercise}
-        options={navigationOptions}
-      />
-
-      <GameStack.Screen
-        name={ScreenNames.kidsGameExerciseScreen}
-        component={KidsGameExercise}
         options={navigationOptions}
       />
     </GameStack.Navigator>

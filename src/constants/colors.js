@@ -28,4 +28,7 @@ export const colors = {
   lightRed: '#ff3333',
   green: '#008000',
   blackWithOpacity: 'rgba(0,0,0,0.3)',
+
+  correct: 'rgba(0, 179, 0, 0.7)',
+  wrong: 'rgba(255, 26, 26, 0.8)',
 };
