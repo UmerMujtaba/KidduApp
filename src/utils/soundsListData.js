@@ -6,5 +6,5 @@ export const soundData = [
   {id: '3', title: 'Shapes', screenName: ScreenNames.shapesScreen},
   {id: '4', title: 'Animals', screenName: ScreenNames.animalsScreen},
   {id: '5', title: 'Vehicles', screenName: ScreenNames.vehicleScreen},
-  // {id: '5', title: 'Vehicles', screenName: ScreenNames.animalsScreen},  place vehicle screen instead of animal screen
+  {id: '6', title: 'Colors', screenName: ScreenNames.colorsScreen},
 ];

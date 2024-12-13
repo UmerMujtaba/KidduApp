@@ -6,13 +6,14 @@ import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {numbersData} from '../../../../utils/numbersScreenData';
 import {styles} from './styles';
+import {useNavigation} from '@react-navigation/native';
 
 const NumbersScreen = () => {
   const [playingSound, setPlayingSound] = useState(null);
   const {setLoader} = useLoaderProvider();
+  const navigation = useNavigation();
   useEffect(() => {
     setLoader(true);
-
     setTimeout(() => {
       setLoader(false);
     }, 1000);
@@ -22,9 +23,7 @@ const NumbersScreen = () => {
 
   const renderItem = ({item}) => {
     console.log('🚀 ~ renderItem ~ item:', item);
-
     const {letter, image, soundFile} = item;
-
     return (
       <AlphabetComponent
         letter={letter}
@@ -37,7 +36,11 @@ const NumbersScreen = () => {
   };
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar title={'Numbers'} />
+      <CustomAppBar
+        title={'Numbers'}
+        back
+        onBackPress={() => navigation.goBack()}
+      />
       <FlatList
         data={numbersData}
         renderItem={renderItem}

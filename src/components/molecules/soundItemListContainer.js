@@ -15,6 +15,8 @@ const SoundItemListContainer = () => {
   return (
     <View style={styles.container}>
       <FlatList
+        scrollEnabled={true}
+        showsVerticalScrollIndicator={false}
         data={soundData}
         renderItem={({item}) => (
           <SoundItemComponent
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   contentContainerStyle: {
-    paddingBottom: rhp(20),
+    paddingBottom: rhp(180),
   },
 });
 export default SoundItemListContainer;

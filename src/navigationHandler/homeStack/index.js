@@ -8,8 +8,10 @@ import NumbersScreen from '../../screens/bottom/pronounciationScreens/numbers';
 import ShapesScreen from '../../screens/bottom/pronounciationScreens/shapes';
 import AnimalsScreen from '../../screens/bottom/pronounciationScreens/animals';
 import Vehicle from '../../screens/bottom/pronounciationScreens/vehicle';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import ColorsScreen from '../../screens/bottom/pronounciationScreens/colors';
 
-const HomeStack = createNativeStackNavigator();
+const GameStack = createNativeStackNavigator();
 
 const navigationOptions = () => ({
   headerShown: false,
@@ -18,46 +20,46 @@ const navigationOptions = () => ({
   animation: 'slide_from_right',
 });
 
-const HomeNavigator = () => {
+const GameNavigator = () => {
   return (
-    <HomeStack.Navigator initialRouteName={ScreenNames.homeScreen}>
-      <HomeStack.Screen
+    <GameStack.Navigator initialRouteName={ScreenNames.homeScreen}>
+      <GameStack.Screen
         name={ScreenNames.homeScreen}
         component={HomeScreen}
         options={navigationOptions}
       />
-      <HomeStack.Screen
+      <GameStack.Screen
         name={ScreenNames.alphabetsScreen}
         component={AlphabetsScreen}
         options={navigationOptions}
       />
-      <HomeStack.Screen
+      <GameStack.Screen
         name={ScreenNames.numbersScreen}
         component={NumbersScreen}
         options={navigationOptions}
       />
-      <HomeStack.Screen
+      <GameStack.Screen
         name={ScreenNames.shapesScreen}
         component={ShapesScreen}
         options={navigationOptions}
       />
-      <HomeStack.Screen
+      <GameStack.Screen
         name={ScreenNames.animalsScreen}
         component={AnimalsScreen}
         options={navigationOptions}
       />
-      <HomeStack.Screen
+      <GameStack.Screen
         name={ScreenNames.vehicleScreen}
         component={Vehicle}
         options={navigationOptions}
       />
-      {/* <HomeStack.Screen
-        name={ScreenNames.kidsGamesScreen}
-        component={KidsGamesScreen}
+      <GameStack.Screen
+        name={ScreenNames.colorsScreen}
+        component={ColorsScreen}
         options={navigationOptions}
-      /> */}
-    </HomeStack.Navigator>
+      />
+    </GameStack.Navigator>
   );
 };
 
-export default HomeNavigator;
+export default GameNavigator;

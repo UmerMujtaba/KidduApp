@@ -1,171 +1,36 @@
-import React, {useState, useRef} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
-import Svg, {Polygon} from 'react-native-svg';
-import {SketchCanvas} from '@sourcetoad/react-native-sketch-canvas';
-import Slider from '@react-native-community/slider';
-
-// Point-in-Polygon function
-const isPointInPolygon = (point, polygon) => {
-  let {x, y} = point;
-  let isInside = false;
-
-  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-    const xi = polygon[i].x,
-      yi = polygon[i].y;
-    const xj = polygon[j].x,
-      yj = polygon[j].y;
-
-    const intersect =
-      yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi;
-    if (intersect) isInside = !isInside;
-  }
-
-  return isInside;
-};
+import {useNavigation} from '@react-navigation/native';
+import React from 'react';
+import {ImageBackground, ScrollView, Text} from 'react-native';
+import {useSelector} from 'react-redux';
+import {images} from '../../../assets/images';
+import CalendarComponent from '../../../components/atoms/calendar';
+import CustomAppBar from '../../../components/atoms/customAppBar';
+import MenuContainer from '../../../components/molecules/menuContainer';
+import {styles} from './styles';
+import ManageScreenTimer from '../../../components/atoms/manageScreenTimer';
 
 const SettingsScreen = () => {
-  const [feedback, setFeedback] = useState('');
-  const [isInside, setIsInside] = useState(false);
-  const [strokeWidth, setStrokeWidth] = useState(4);
-  const [strokeColor, setStrokeColor] = useState('red');
-  const canvasRef = useRef(null);
+  const navigation = useNavigation();
+  const {username, gender, age} = useSelector(state => state.userReducer);
+  const {elapsedTime} = useSelector(state => state.timerReducer);
 
-  const handleStrokeWidthChange = value => {
-    setStrokeWidth(value);
-  };
-
-  const handleStrokeColorChange = color => {
-    setStrokeColor(color);
-  };
-
-  // Define the shape (e.g., a triangle)
-  const shapeCoordinates = [
-    {x: 50, y: 50},
-    {x: 150, y: 50},
-    {x: 100, y: 150},
-  ];
-
-  // Handle stroke end
-  const handleStrokeEnd = path => {
-    console.log('🚀 ~ handleStrokeEnd ~ path:', path);
-    if (path?.path?.data?.length) {
-      const lastPoint = path.path.data[path.path.data.length - 1];
-      console.log('🚀 ~ handleStrokeEnd ~ lastPoint:', lastPoint);
-      const inside = isPointInPolygon(
-        {x: lastPoint.x, y: lastPoint.y},
-        shapeCoordinates,
-      );
-      console.log('🚀 ~ handleStrokeEnd ~ inside:', inside);
-      setIsInside(inside);
-      setFeedback(inside ? 'Inside the shape!' : 'Outside the shape!');
-    } else {
-      setFeedback('Draw something!');
-    }
-  };
-  const handleClear = () => {
-    canvasRef.current.clear();
-    setFeedback('');
-    setIsInside(false);
-  };
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Draw Inside the Shape</Text>
-
-      {/* Show the predefined shape */}
-      <Svg height="300" width="300" style={styles.svg}>
-        <Polygon
-          points={shapeCoordinates
-            .map(point => `${point.x},${point.y}`)
-            .join(' ')}
-          fill="none"
-          stroke="blue"
-          strokeWidth="2"
-        />
-      </Svg>
-
-      {/* Canvas for freehand drawing */}
-      <SketchCanvas
-        ref={canvasRef}
-        style={styles.canvas}
-        strokeColor={strokeColor}
-        strokeWidth={strokeWidth}
-        onStrokeEnd={handleStrokeEnd}
+    <ImageBackground style={styles.container} source={images.backgroundImage}>
+      <CustomAppBar
+        onBackPress={() => navigation.goBack()}
+        notification
+        onNotificationPress={() => {}}
+        back
       />
-
-      {/* Stroke Width Control */}
-      <Text>Stroke Width: {strokeWidth}</Text>
-      <Slider
-        minimumValue={1}
-        maximumValue={20}
-        value={strokeWidth}
-        onValueChange={handleStrokeWidthChange}
-        style={styles.slider}
-      />
-
-      {/* Stroke Color Control */}
-      <View
-        style={{
-          marginTop: 20,
-          flexDirection: 'row',
-          width: '80%',
-          justifyContent: 'space-around',
-        }}>
-        <Button title="Red" onPress={() => handleStrokeColorChange('red')} />
-        <Button title="Blue" onPress={() => handleStrokeColorChange('blue')} />
-        <Button
-          title="Green"
-          onPress={() => handleStrokeColorChange('green')}
-        />
-        <Button title="Clear" onPress={handleClear} />
-      </View>
-
-      {/* Feedback */}
-      <Text style={styles.feedback}>{feedback}</Text>
-      {isInside && <View style={styles.insideBorder} />}
-    </View>
+      <Text style={styles.nameStyle}>{username}</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <CalendarComponent />
+        <Text style={styles.logoutText}>Time spent in app:</Text>
+        <MenuContainer />
+        <ManageScreenTimer />
+      </ScrollView>
+    </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 22,
-    marginBottom: 20,
-  },
-  svg: {
-    position: 'absolute',
-    top: 20,
-    height: 300,
-    width: 300,
-  },
-  canvas: {
-    width: 300,
-    height: 300,
-    backgroundColor: '#F1f3d9',
-  },
-  feedback: {
-    marginTop: 10,
-    fontSize: 18,
-    color: 'green',
-  },
-  insideBorder: {
-    position: 'absolute',
-    top: 50,
-    left: 50,
-    width: 100,
-    height: 100,
-    borderWidth: 2,
-    borderColor: 'green',
-    borderRadius: 10,
-  },
-  slider: {
-    width: 200,
-    marginTop: 20,
-  },
-});
 
 export default SettingsScreen;

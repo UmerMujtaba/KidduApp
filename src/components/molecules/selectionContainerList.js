@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     marginInline: rwp(10),
-    paddingBottom: rhp(150),
+    paddingBottom: rhp(70),
   },
 });
 

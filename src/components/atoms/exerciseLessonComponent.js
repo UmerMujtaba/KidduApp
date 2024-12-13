@@ -4,12 +4,14 @@ import {rfs, rhp, rwp} from '../../constants/dimensions';
 import {colors} from '../../constants/colors';
 import fonts from '../../constants/fonts';
 import FastImage from 'react-native-fast-image';
+import ProgressBar from 'react-native-progress/Bar';
 
 const ExerciseLessonComponent = ({
   heading,
-  subHeading,
+  totalExercises,
   imageSource,
   onPress,
+  progress,
 }) => {
   return (
     <TouchableOpacity
@@ -19,8 +21,17 @@ const ExerciseLessonComponent = ({
       <View style={[styles.container, styles.insideContainer]}>
         <View style={styles.leftContainer}>
           <Text style={styles.heading}>{heading}</Text>
-          <Text style={styles.timeTxt}>{subHeading}</Text>
-          <Text style={styles.heading}>Bar</Text>
+          <Text style={styles.timeTxt}>Total Exercises: {totalExercises}</Text>
+          <ProgressBar
+            progress={progress / totalExercises}
+            width={rwp(150)}
+            height={rhp(10)}
+            color={colors.backgroundClr}
+            borderWidth={0}
+            borderRadius={5}
+            unfilledColor="#E2E2E2"
+            style={styles.progressBar}
+          />
         </View>
 
         <FastImage source={{uri: imageSource}} style={styles.imgStyle} />
@@ -39,6 +50,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: rhp(20),
+  },
+  progressBar: {
+    marginVertical: rhp(10),
   },
   insideContainer: {
     height: rhp(140),

@@ -1,40 +1,62 @@
+import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import React, {useEffect, useState} from 'react';
 import {
   Animated,
-  Image,
   ImageBackground,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../../assets/images';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
 import CustomBottomTab from '../../../../components/atoms/customBottomTab';
 import NumbersQuestionBar from '../../../../components/atoms/numbersQuestionBar';
 import {colors} from '../../../../constants/colors';
-import {styles} from './styles';
 import {Strings} from '../../../../constants/strings';
-import FastImage from 'react-native-fast-image';
+import {styles} from './styles';
+import {
+  setExerciseIndex,
+  setRandomCount,
+  setOptions,
+  setProgress,
+  setFeedbackColor,
+  setIsCorrect,
+  setShowLottie,
+} from '../../../../redux/slices/numbersExerciseSlice';
+import StickerModal from '../../../../components/atoms/stickerModal';
+import {addNumberSticker} from '../../../../redux/slices/rewardsSlice';
+import {useStickerManager} from '../../../../hooks';
 
 const QuestionImages = {
   image1: images.cubImage,
 };
 
 const NumbersExercise = () => {
-  const [selected, setSelected] = useState(null);
-  const [feedbackColor, setFeedbackColor] = useState(null);
-  const [randomCount, setRandomCount] = useState(
-    Math.floor(Math.random() * 10) + 1,
-  );
-  const [options, setOptions] = useState([]);
-  const [exerciseIndex, setExerciseIndex] = useState(1);
-  const [progress, setProgress] = useState(new Animated.Value(0));
-  const [showLottie, setShowLottie] = useState(false);
-  const [isCorrect, setIsCorrect] = useState('');
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const [earnedSticker, setEarnedSticker] = useState(null);
+  const [showStickerModal, setShowStickerModal] = useState(false);
 
-  const totalExercises = 10;
+  const {getStickerForExercise} = useStickerManager();
 
+  const {
+    exerciseIndex,
+    randomCount,
+    options,
+    progress,
+    feedbackColor,
+    isCorrect,
+    showLottie,
+  } = useSelector(state => state.numbersExerciseReducer);
+
+  const totalExercises = 12;
+  console.log('🚀 ~ NumbersExercise ~ totalExercises:', totalExercises);
+  const animatedProgress = useState(
+    new Animated.Value(exerciseIndex / totalExercises),
+  )[0];
   const generateOptions = () => {
     const correctAnswer = randomCount;
     const options = [correctAnswer];
@@ -51,56 +73,67 @@ const NumbersExercise = () => {
 
   useEffect(() => {
     const newOptions = generateOptions();
-    setOptions(newOptions);
+    dispatch(setOptions(newOptions));
   }, [randomCount]);
 
   useEffect(() => {
-    Animated.timing(progress, {
+    Animated.timing(animatedProgress, {
       toValue: exerciseIndex / totalExercises,
       duration: 500,
       useNativeDriver: false,
     }).start();
+
+    dispatch(setProgress(exerciseIndex / totalExercises));
   }, [exerciseIndex]);
 
   const handleSelection = number => {
-    setSelected(number);
+    dispatch(setIsCorrect(number === randomCount ? 'correct' : 'incorrect'));
+    dispatch(
+      setFeedbackColor(
+        number === randomCount ? colors.backgroundClr : colors.darkOrange,
+      ),
+    );
+    dispatch(setShowLottie(true));
+
     if (number === randomCount) {
-      setFeedbackColor(colors.backgroundClr);
-      setIsCorrect('correct');
-      setShowLottie(true);
       setTimeout(() => {
-        setShowLottie(false);
+        dispatch(setShowLottie(false));
         handleNext('correct');
       }, 3000);
     } else {
-      setFeedbackColor(colors.darkOrange);
-      setIsCorrect('incorrect');
-      setShowLottie(true);
       setTimeout(() => {
-        setShowLottie(false);
+        dispatch(setShowLottie(false));
       }, 3000);
+    }
+
+    if (exerciseIndex === totalExercises) {
+      const sticker = getStickerForExercise();
+
+      setEarnedSticker(sticker);
+      setShowStickerModal(true);
+
+      dispatch(addNumberSticker(sticker));
     }
   };
 
   const handleNext = value => {
-    if (value ? value == 'correct' : isCorrect == 'correct') {
+    if (value === 'correct' || isCorrect === 'correct') {
       if (exerciseIndex < totalExercises) {
-        setExerciseIndex(exerciseIndex + 1);
-        setRandomCount(Math.floor(Math.random() * 10) + 1);
-        setFeedbackColor('transparent');
+        dispatch(setExerciseIndex(exerciseIndex + 1));
+        dispatch(setRandomCount());
+        dispatch(setFeedbackColor('transparent'));
       }
-    } else if (isCorrect == 'incorrect') {
-      setShowLottie(true);
+    } else if (isCorrect === 'incorrect') {
       setTimeout(() => {
-        setShowLottie(false);
+        dispatch(setShowLottie(false));
       }, 3000);
     }
   };
 
   const handleBack = () => {
     if (exerciseIndex > 1) {
-      setExerciseIndex(exerciseIndex - 1);
-      setRandomCount(Math.floor(Math.random() * 10) + 1);
+      dispatch(setExerciseIndex(exerciseIndex - 1));
+      dispatch(setRandomCount());
     }
   };
 
@@ -118,13 +151,13 @@ const NumbersExercise = () => {
     return imagesArray;
   };
 
-  const handleLottieFinish = () => {
-    setShowLottie(false);
-  };
-
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar title={'Numbers'} />
+      <CustomAppBar
+        title={'Numbers'}
+        onBackPress={() => navigation.goBack()}
+        back
+      />
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           <View style={styles.bottomBody}>
@@ -146,7 +179,7 @@ const NumbersExercise = () => {
                 style={[
                   styles.progressBar,
                   {
-                    width: progress.interpolate({
+                    width: animatedProgress.interpolate({
                       inputRange: [0, 1],
                       outputRange: ['0%', '100%'],
                     }),
@@ -154,25 +187,18 @@ const NumbersExercise = () => {
                 ]}
               />
             </View>
-            {showLottie ? (
-              isCorrect == 'correct' ? (
-                <LottieView
-                  source={require('../../../../assets/lottie/fireworks.json')}
-                  autoPlay
-                  loop={false}
-                  style={styles.fireworksAnimation}
-                />
-              ) : (
-                isCorrect == 'incorrect' && (
-                  <LottieView
-                    source={require('../../../../assets/lottie/error.json')}
-                    autoPlay
-                    loop={false}
-                    style={styles.fireworksAnimation}
-                  />
-                )
-              )
-            ) : null}
+            {showLottie && (
+              <LottieView
+                source={
+                  isCorrect === 'correct'
+                    ? require('../../../../assets/lottie/fireworks.json')
+                    : require('../../../../assets/lottie/error.json')
+                }
+                autoPlay
+                loop={false}
+                style={styles.fireworksAnimation}
+              />
+            )}
             <View style={styles.imagesContainer}>{renderImages()}</View>
             <View style={styles.optionsContainer}>
               {options.map(number => (
@@ -180,7 +206,7 @@ const NumbersExercise = () => {
                   key={number}
                   style={[
                     styles.optionButton,
-                    selected === number && {backgroundColor: feedbackColor},
+                    number === randomCount && {backgroundColor: feedbackColor},
                   ]}
                   onPress={() => handleSelection(number)}>
                   <Text style={styles.optionText}>{number}</Text>
@@ -189,6 +215,17 @@ const NumbersExercise = () => {
             </View>
           </View>
         </View>
+
+        <StickerModal
+          isVisible={showStickerModal}
+          earnedSticker={earnedSticker}
+          onClose={() => {
+            setShowStickerModal(false);
+            setTimeout(() => {
+              navigation.goBack();
+            }, 2000);
+          }}
+        />
 
         <CustomBottomTab onNext={handleNext} onBack={handleBack} />
       </View>

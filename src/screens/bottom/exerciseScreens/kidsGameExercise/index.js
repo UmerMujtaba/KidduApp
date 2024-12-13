@@ -1,21 +1,34 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {
-  View,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
   Animated,
-  Alert,
+  ImageBackground,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import {styles} from './styles'; // Assuming the styles are stored here
-import {images} from '../../../../assets/images';
 import FastImage from 'react-native-fast-image';
-import LottieView from 'lottie-react-native';
+import {images} from '../../../../assets/images';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
-import CustomBottomTab from '../../../../components/atoms/customBottomTab'; // Assuming this is where the bottom tab is
+import CustomBottomTab from '../../../../components/atoms/customBottomTab';
+import LottieView from 'lottie-react-native';
+import {
+  setExerciseIndex,
+  setProgress,
+  setRandomGame,
+  setCorrectGame,
+  setSelectedGame,
+  setSelectionStatus,
+  setShowLottie,
+  setIsCorrect,
+  resetGame,
+} from '../../../../redux/slices/gameExerciseSlice';
 import {GameExerciseData} from '../../../../utils/kidsGameScreenData';
-import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
+import {styles} from './styles';
+import {useNavigation} from '@react-navigation/native';
+import {addQuizSticker} from '../../../../redux/slices/rewardsSlice';
+import StickerModal from '../../../../components/atoms/stickerModal';
+import {useStickerManager} from '../../../../hooks';
 
 const getRandomQuestions = () => {
   let selected = [];
@@ -29,104 +42,111 @@ const getRandomQuestions = () => {
 };
 
 const KidsGameExercise = () => {
-  const [pressed, setPressed] = useState(false);
-  const totalExercises = GameExerciseData.length;
-  const [progress, setProgress] = useState(new Animated.Value(0));
-  const [randomGame, setRandomGame] = useState(getRandomQuestions());
-  const [correctGame, setCorrectGame] = useState(null);
-  const [exerciseIndex, setExerciseIndex] = useState(1);
-  const [showLottie, setShowLottie] = useState(false);
-  const [isCorrect, setIsCorrect] = useState('');
-  const [selectedGame, setSelectedGame] = useState([
-    false,
-    false,
-    false,
-    false,
-  ]);
-  const [selectionStatus, setSelectionStatus] = useState([
-    null,
-    null,
-    null,
-    null,
-  ]);
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
 
-  // Function to set new random game and correct answer
+  const [earnedSticker, setEarnedSticker] = useState(null);
+  const [showStickerModal, setShowStickerModal] = useState(false);
+  const {getStickerForExercise} = useStickerManager();
+
+  const {
+    exerciseIndex,
+    randomGame,
+    correctGame,
+    selectedGame,
+    selectionStatus,
+    showLottie,
+    isCorrect,
+  } = useSelector(state => state.gamesExerciseReducer);
+
+  const totalExercises = GameExerciseData.length;
+
+  // Initialize progress as an Animated.Value
+  const progressAnim = useState(new Animated.Value(0))[0];
+
   const setNewRandomGame = () => {
     const selectedGame = getRandomQuestions();
-    setRandomGame(selectedGame);
+    dispatch(setRandomGame(selectedGame));
 
-    // Select a random correct answer from the selected game options
     const correctIndex = Math.floor(Math.random() * selectedGame.length);
-    setCorrectGame(selectedGame[correctIndex].name); // Set the name of the correct game
-    setSelectionStatus([null, null, null, null]);
-    setSelectedGame([false, false, false, false]);
+    dispatch(setCorrectGame(selectedGame[correctIndex].name));
 
-    // Update progress bar
-    Animated.timing(progress, {
-      toValue: exerciseIndex / totalExercises,
-      duration: 500,
-      useNativeDriver: false,
+    dispatch(setSelectionStatus([null, null, null, null]));
+    dispatch(setSelectedGame([false, false, false, false]));
+
+    // Update the progress using Animated.timing
+    Animated.timing(progressAnim, {
+      toValue: (exerciseIndex / totalExercises) * 100, // Normalize to 0-100
+      duration: 500, // Set duration for smooth animation
+      useNativeDriver: false, // Ensure smooth transitions on the UI thread
     }).start();
   };
 
-  // Handle option selection
   const handleSelection = index => {
-    setSelectedGame([false, false, false, false]);
+    dispatch(setSelectedGame([false, false, false, false]));
     const updatedSelections = [...selectedGame];
     updatedSelections[index] = true;
-    setSelectedGame(updatedSelections);
+    dispatch(setSelectedGame(updatedSelections));
 
     const updatedStatus = [...selectionStatus];
     if (randomGame[index].name === correctGame) {
       updatedStatus[index] = true;
-      setIsCorrect('correct');
-      setShowLottie(true);
+      dispatch(setIsCorrect('correct'));
+      dispatch(setShowLottie(true));
       setTimeout(() => {
-        setShowLottie(false);
+        dispatch(setShowLottie(false));
         handleNext('correct');
       }, 3000);
     } else {
       updatedStatus[index] = false;
-      setIsCorrect('incorrect');
-      setShowLottie(true);
+      dispatch(setIsCorrect('incorrect'));
+      dispatch(setShowLottie(true));
       setTimeout(() => {
-        setShowLottie(false);
-        setSelectionStatus([null, null, null, null]);
-        setSelectedGame([false, false, false, false]);
+        dispatch(setShowLottie(false));
+        dispatch(setSelectionStatus([null, null, null, null]));
+        dispatch(setSelectedGame([false, false, false, false]));
       }, 3000);
     }
-    setSelectionStatus(updatedStatus);
+    dispatch(setSelectionStatus(updatedStatus));
+
+    if (exerciseIndex === totalExercises) {
+      const sticker = getStickerForExercise();
+      setEarnedSticker(sticker);
+      setShowStickerModal(true);
+      dispatch(addQuizSticker(sticker));
+    }
   };
 
-  // Move to the next exercise
   const handleNext = value => {
     if (value === 'correct' && exerciseIndex < totalExercises) {
-      setExerciseIndex(exerciseIndex + 1);
+      dispatch(setExerciseIndex(exerciseIndex + 1));
       setNewRandomGame();
     } else if (isCorrect === 'incorrect') {
-      setShowLottie(true);
+      dispatch(setShowLottie(true));
       setTimeout(() => {
-        setShowLottie(false);
+        dispatch(setShowLottie(false));
       }, 3000);
     }
   };
 
-  // Move to the previous exercise
   const handleBack = () => {
     if (exerciseIndex > 1) {
-      setExerciseIndex(exerciseIndex - 1);
+      dispatch(setExerciseIndex(exerciseIndex - 1));
       setNewRandomGame();
     }
   };
 
-  // Set a new game when exerciseIndex changes
   useEffect(() => {
     setNewRandomGame();
   }, [exerciseIndex]);
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar title={'Quiz'} />
+      <CustomAppBar
+        title={'Quiz'}
+        onBackPress={() => navigation.goBack()}
+        back
+      />
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           <View style={styles.bottomBody}>
@@ -139,8 +159,7 @@ const KidsGameExercise = () => {
                   />
                 </View>
               </TouchableOpacity>
-              {/* Display the correct game name as the question */}
-              <Text style={styles.question}>Choose the {correctGame}:</Text>
+              <Text style={styles.question}>Choose the correct word:</Text>
             </View>
 
             <View style={styles.exerciseContainer}>
@@ -155,8 +174,8 @@ const KidsGameExercise = () => {
                 style={[
                   styles.progressBar,
                   {
-                    width: progress.interpolate({
-                      inputRange: [0, 1],
+                    width: progressAnim.interpolate({
+                      inputRange: [0, 100],
                       outputRange: ['0%', '100%'],
                     }),
                   },
@@ -183,15 +202,13 @@ const KidsGameExercise = () => {
                   <TouchableOpacity
                     hitSlop={{top: 5, bottom: 5, left: 5, right: 5}}
                     style={[
-                      styles.checkbox(pressed === index),
+                      styles.checkbox(selectedGame[index]),
                       selectedGame[index]
                         ? selectionStatus[index] === true
                           ? styles.checkedGreen
                           : styles.checkedRed
                         : styles.unchecked,
                     ]}
-                    onPressIn={() => setPressed(index)}
-                    onPressOut={() => setPressed(null)}
                     onPress={() => handleSelection(index)}>
                     <FastImage
                       defaultSource={images.defaultImg}
@@ -199,48 +216,28 @@ const KidsGameExercise = () => {
                       style={styles.gameImage}
                     />
                   </TouchableOpacity>
-                  {/* <TouchableOpacity
-                    hitSlop={{top: 5, bottom: 5, left: 5, right: 5}}
-                    style={[
-                      styles.checkbox(pressed === index),
-                      selectedGame[index]
-                        ? selectionStatus[index] === true
-                          ? styles.checkedGreen
-                          : styles.checkedRed
-                        : styles.unchecked,
-                    ]}
-                    onPressIn={() => setPressed(index)}
-                    onPressOut={() => setPressed(null)}
-                    onPress={() => handleSelection(index)}>
-                    {selectedGame[index] &&
-                      (selectionStatus[index] === true ? (
-                        <FontAwesome6
-                          name="check"
-                          size={16}
-                          color="white"
-                          style={styles.btnText}
-                        />
-                      ) : (
-                        <Entypo
-                          name="cross"
-                          size={16}
-                          color="white"
-                          style={styles.btnText}
-                        />
-                      ))}
-                  </TouchableOpacity> */}
                 </View>
               ))}
             </View>
 
-            {/* Button displaying the correct game name
             <TouchableOpacity style={[styles.btnStyle]}>
               <View style={[styles.btnStyle, styles.insideBtnStyle]}>
                 <Text style={styles.btnText}>{correctGame}</Text>
               </View>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
           </View>
         </View>
+
+        <StickerModal
+          isVisible={showStickerModal}
+          earnedSticker={earnedSticker}
+          onClose={() => {
+            setShowStickerModal(false);
+            setTimeout(() => {
+              navigation.goBack();
+            }, 2000);
+          }}
+        />
 
         <CustomBottomTab onNext={handleNext} onBack={handleBack} />
       </View>

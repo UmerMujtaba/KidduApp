@@ -24,8 +24,13 @@ const SignUpScreen = () => {
         onPress={() => navigate(ScreenNames.otpScreen)}
       />
       {!keyboardStatus && (
-        <View style={{flex: 1, justifyContent: 'flex-end'}}>
-          <FastImage source={images.cubImage} style={styles.imgStyle} />
+        <View
+          style={{flex: 1, justifyContent: 'flex-end', marginBottom: rhp(40)}}>
+          <FastImage
+            source={images.cubImage}
+            style={styles.imgStyle}
+            resizeMode={FastImage.resizeMode.cover}
+          />
         </View>
       )}
       {/* </View> */}

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   FlatList,
   ImageBackground,
@@ -11,28 +11,24 @@ import {images} from '../../../../assets/images';
 import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {rhp} from '../../../../constants/dimensions';
+import {useLoaderProvider} from '../../../../contextAPI';
 import {VehiclesData} from '../../../../utils/vehiclesData';
 import {styles} from './styles';
-import {useLoaderProvider} from '../../../../contextAPI';
+import {useNavigation} from '@react-navigation/native';
 
 const Vehicle = () => {
   const {setLoader} = useLoaderProvider();
-
+  const navigation = useNavigation();
   useEffect(() => {
     setLoader(true);
-
     setTimeout(() => {
       setLoader(false);
     }, 1000);
-
     return () => setLoader(false);
   }, [setLoader]);
-
   const renderItem = ({item}) => {
     console.log('🚀 ~ renderItem ~ item:', item);
-
     const {letter, image} = item;
-
     const handleSpeakerPress = () => {
       console.log('🚀 ~ handleSpeakerPress ~ item:', item);
       const word = item.letter;
@@ -42,7 +38,6 @@ const Vehicle = () => {
       Tts.setDefaultPitch(0.7);
       Tts.setDefaultRate(0.5, true);
     };
-
     return (
       <View>
         <AlphabetComponent
@@ -68,7 +63,11 @@ const Vehicle = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar title={'Vehicles'} />
+      <CustomAppBar
+        title={'Vehicles'}
+        onBackPress={() => navigation.goBack()}
+        back
+      />
       <FlatList
         data={VehiclesData}
         renderItem={renderItem}

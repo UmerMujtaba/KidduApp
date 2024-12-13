@@ -70,20 +70,6 @@ const Bottom = () => {
         tabBarLabel: () => null, // Hide default labels
       }}>
       <Tab.Screen
-        name={ScreenNames.homeNavigator}
-        component={HomeNavigator}
-        options={{
-          headerShown: false,
-          animationEnabled: true,
-          tabBarIcon: ({focused}) => (
-            <TabBarIconWithLabel
-              focused={focused}
-              iconSource={images.icons.homeIcon}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
         name={ScreenNames.gameNavigator}
         component={GameNavigator}
         options={{
@@ -92,7 +78,21 @@ const Bottom = () => {
           tabBarIcon: ({focused}) => (
             <TabBarIconWithLabel
               focused={focused}
-              iconSource={images.icons.notesIcon}
+              iconSource={images.icons.gameIcon}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={ScreenNames.homeNavigator}
+        component={HomeNavigator}
+        options={{
+          headerShown: false,
+          animationEnabled: true,
+          tabBarIcon: ({focused}) => (
+            <TabBarIconWithLabel
+              focused={focused}
+              iconSource={images.icons.speakIcon}
             />
           ),
         }}

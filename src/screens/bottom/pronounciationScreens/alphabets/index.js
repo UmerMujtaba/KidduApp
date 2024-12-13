@@ -1,33 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  ImageBackground,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import {FlatList, ImageBackground} from 'react-native';
 import {images} from '../../../../assets/images';
 import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
+import {useLoaderProvider} from '../../../../contextAPI';
 import {alphabetData} from '../../../../utils/alphabetsScreenData';
 import {styles} from './styles';
-import {useLoaderProvider} from '../../../../contextAPI';
-import {colors} from '../../../../constants/colors';
+import {useNavigation} from '@react-navigation/native';
 
 const AlphabetsScreen = ({route}) => {
   const [playingSound, setPlayingSound] = useState(null);
   const {setLoader} = useLoaderProvider();
-  // const [loader, setLoader] = useState(true);
-
+  const navigation = useNavigation();
   useEffect(() => {
     setLoader(true);
     setTimeout(() => {
       setLoader(false);
     }, 1000);
-
     return () => setLoader(false);
   }, [setLoader]);
-
   const renderItem = ({item}) => {
     console.log('🚀 ~ renderItem ~ item:', item);
     const {letter, image, soundFile} = item;
@@ -41,18 +32,13 @@ const AlphabetsScreen = ({route}) => {
       />
     );
   };
-
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar title={'Alphabets'} />
-
-      {/* {loader ? (
-        <ActivityIndicator
-          style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-          color={colors.darkOrange}
-          size={'large'}
-        />
-      ) : ( */}
+      <CustomAppBar
+        title={'Alphabets'}
+        back
+        onBackPress={() => navigation.goBack()}
+      />
       <FlatList
         data={alphabetData}
         renderItem={renderItem}
@@ -62,7 +48,6 @@ const AlphabetsScreen = ({route}) => {
         contentContainerStyle={styles.contentContainerStyle}
         showsVerticalScrollIndicator={false}
       />
-      {/* )} */}
     </ImageBackground>
   );
 };

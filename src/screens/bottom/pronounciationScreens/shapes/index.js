@@ -1,28 +1,26 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FlatList, ImageBackground} from 'react-native';
+import Tts from 'react-native-tts';
 import {images} from '../../../../assets/images';
 import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
-import {styles} from './styles';
 import {shapesData} from '../../../../utils/shapesScreenData';
-import Tts from 'react-native-tts';
+import {styles} from './styles';
+import {useNavigation} from '@react-navigation/native';
 
 const ShapesScreen = () => {
-  // const [playingSound, setPlayingSound] = useState(null);
-
+  const navigation = useNavigation();
   const renderItem = ({item}) => {
     console.log('🚀 ~ renderItem ~ item:', item);
-    // Destructure item to get letter, image, and soundFile
     const {letter, image, soundFile} = item;
-
     const handleSpeakerPress = () => {
       console.log('🚀 ~ handleSpeakerPress ~ item:', item);
       const word = item.letter;
       console.log('🚀 ~ handleSpeakerPress ~ word:', word);
       Tts.speak(word);
       Tts.setDefaultVoice('com.apple.speech.synthesis.voice.Albert');
-      Tts.setDefaultPitch(0.7);
-      Tts.setDefaultRate(0.5, true);
+      Tts.setDefaultPitch(0.5);
+      Tts.setDefaultRate(0.6, true);
     };
 
     return (
@@ -38,7 +36,11 @@ const ShapesScreen = () => {
   };
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar title={'Shapes'} />
+      <CustomAppBar
+        title={'Shapes'}
+        onBackPress={() => navigation.goBack()}
+        back
+      />
       <FlatList
         data={shapesData}
         renderItem={renderItem}
