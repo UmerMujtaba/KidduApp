@@ -1,21 +1,19 @@
-import {View, Text, StyleSheet, Animated} from 'react-native';
-import React, {useEffect, useRef} from 'react';
-import {rfs, rhp, rwp} from '../../constants/dimensions';
-import fonts from '../../constants/fonts';
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import ProgressBar from 'react-native-progress/Bar';
 import {colors} from '../../constants/colors';
+import {rfs, rhp, rwp, wp} from '../../constants/dimensions';
+import fonts from '../../constants/fonts';
 import {Strings} from '../../constants/strings';
 
-const ExerciseHeader = ({letter, currentExerciseIndex, totalExercises}) => {
-  const progress = (currentExerciseIndex / totalExercises) * 100;
+const ExerciseHeader = ({
+  letter,
+  currentExerciseIndex,
+  totalExercises,
+  progress,
+}) => {
+  const normalizedProgress = progress > 1 ? progress / 100 : progress;
 
-  const progressAnim = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    Animated.timing(progressAnim, {
-      toValue: progress,
-      duration: 500,
-      useNativeDriver: false,
-    }).start();
-  }, [currentExerciseIndex, progress]);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -25,19 +23,17 @@ const ExerciseHeader = ({letter, currentExerciseIndex, totalExercises}) => {
         </Text>
       </View>
 
-      <View style={styles.bottomBar}>
-        <Animated.View
-          style={[
-            styles.topBar,
-            {
-              width: progressAnim.interpolate({
-                inputRange: [0, 100],
-                outputRange: ['0%', '100%'],
-              }),
-            },
-          ]}
-        />
-      </View>
+      <ProgressBar
+        progress={normalizedProgress}
+        width={wp(90)}
+        height={rhp(10)}
+        color={colors.backgroundClr}
+        borderWidth={0}
+        borderRadius={5}
+        unfilledColor="#E2E2E2"
+        style={styles.progressBar}
+      />
+
       <Text style={styles.description}>
         {totalExercises} {Strings.exercises}
       </Text>
@@ -81,6 +77,9 @@ const styles = StyleSheet.create({
     color: colors.backgroundClr,
     fontSize: rfs(22),
     marginTop: rhp(20),
+  },
+  progressBar: {
+    marginVertical: rhp(10),
   },
 });
 export default ExerciseHeader;

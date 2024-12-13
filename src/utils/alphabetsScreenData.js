@@ -9,6 +9,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253764/alphabets/a_vbdrdy.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Apple', image: images.letterA.apple},
       {name: 'Alligator', image: images.letterA.aligator},
@@ -29,6 +30,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253765/alphabets/b_kyrt9a.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Bat', image: images.letterB.bat},
       {name: 'Ball', image: images.letterB.ball},
@@ -51,6 +53,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253765/alphabets/c_p8a1w3.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Cat', image: images.letterC.cat},
       {name: 'Car', image: images.letterC.car},
@@ -70,6 +73,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253765/alphabets/d_dnzmps.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Duck', image: images.letterD.duck},
       {name: 'Door', image: images.letterD.door},
@@ -88,6 +92,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253765/alphabets/e_aewktw.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Eagle', image: images.letterE.eagle},
       {name: 'Ear', image: images.letterE.ear},
@@ -105,6 +110,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253765/alphabets/f_xwtzfr.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Fan', image: images.letterF.fan},
       {name: 'Feet', image: images.letterF.feet},
@@ -121,6 +127,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253764/alphabets/g_lr8ajo.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Gate', image: images.letterG.gate},
       {name: 'Giraffe', image: images.letterG.giraffe},
@@ -138,6 +145,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253764/alphabets/h_yitjyo.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Hammer', image: images.letterH.hammer},
       {name: 'Hat', image: images.letterH.hat},
@@ -154,6 +162,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253765/alphabets/i_jp67jl.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Ice', image: images.letterI.ice},
       {name: 'Ice Cream', image: images.letterI.iceCream},
@@ -168,6 +177,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253766/alphabets/j_xx2ycs.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Jackal', image: images.letterJ.jackal},
       {name: 'Jaguar', image: images.letterJ.jaguar},
@@ -185,6 +195,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253766/alphabets/k_k9bvqs.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Kangaroo', image: images.letterK.kangaroo},
       {name: 'Kids', image: images.letterK.kid},
@@ -200,6 +211,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253766/alphabets/l_zfugzq.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Ladder', image: images.letterL.ladder},
       {name: 'Lamp', image: images.letterL.lamp},
@@ -216,6 +228,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253764/alphabets/m_ipjn8g.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Mango', image: images.letterM.mango},
       {name: 'Mat', image: images.letterM.mat},
@@ -231,6 +244,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253764/alphabets/n_ch0k3r.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Nail', image: images.letterN.nail},
       {name: 'Necklace', image: images.letterN.necklace},
@@ -246,6 +260,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253764/alphabets/o_shfojc.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Owl', image: images.letterO.owl},
       {name: 'Ox', image: images.letterO.ox},
@@ -262,6 +277,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253764/alphabets/p_iy184f.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Pan', image: images.letterP.pan},
       {name: 'Panda', image: images.letterP.panda},
@@ -278,6 +294,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253764/alphabets/q_btlcnf.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Quack', image: images.letterQ.quack},
       {name: 'Queen', image: images.letterQ.queen},
@@ -292,6 +309,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253764/alphabets/r_znqtty.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Rabbit', image: images.letterR.rabbit},
       {name: 'Ring', image: images.letterR.ring},
@@ -307,6 +325,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253765/alphabets/s_lvyh1z.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Salt', image: images.letterS.salt},
       {name: 'Sand', image: images.letterS.sand},
@@ -324,6 +343,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253767/alphabets/t_udt76o.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Tank', image: images.letterT.tank},
       {name: 'Tent', image: images.letterT.tent},
@@ -341,6 +361,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253767/alphabets/u_sba8os.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Umbrella', image: images.letterU.umbrella},
       {name: 'Uncle', image: images.letterU.uncle},
@@ -354,6 +375,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253767/alphabets/v_wdj25c.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Van', image: images.letterV.van},
       {name: 'Vase', image: images.letterV.vase},
@@ -369,6 +391,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253767/alphabets/w_wl6fml.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Wall', image: images.letterW.wall},
       {name: 'Watermelon', image: images.letterW.watermelon},
@@ -385,6 +408,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253767/alphabets/x_dhph57.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'X-Ray', image: images.letterX.xray},
       {name: 'Xylophone', image: images.letterX.xylophone},
@@ -397,6 +421,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253767/alphabets/y_v065lo.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Yacht', image: images.letterY.yacht},
       {name: 'Yak', image: images.letterY.yak},
@@ -411,6 +436,7 @@ export const alphabetData = [
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253767/alphabets/z_c8chtr.wav',
     screen: ScreenNames.alphabetExerciseMainScreen,
+    progress: 0,
     exercises: [
       {name: 'Zebra', image: images.letterZ.zebra},
       {name: 'Zipper', image: images.letterZ.zipper},

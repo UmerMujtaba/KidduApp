@@ -1,38 +1,44 @@
 import {StyleSheet} from 'react-native';
-import fonts from '../../../constants/fonts';
-import {hp, rfs, rhp, rwp, wp} from '../../../constants/dimensions';
 import {colors} from '../../../constants/colors';
+import {rfs, rhp, rwp} from '../../../constants/dimensions';
+import fonts from '../../../constants/fonts';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingTop: rhp(20),
   },
 
-  btnStyle: {
-    width: wp(8),
-    backgroundColor: colors.blackishOrange,
-    height: rhp(38),
-    alignSelf: 'center',
-    borderRadius: 16,
-    // justifyContent: 'center'
+  sectionContainer: {
+    marginBottom: rhp(10),
+    paddingHorizontal: rwp(20),
   },
-  btnText: {
-    textAlign: 'center',
-    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    fontSize: rfs(20),
+  sectionTitle: {
+    marginTop: rhp(10),
+    fontSize: rfs(27),
+    marginBottom: rhp(10),
+    color: colors.darkOrange,
+    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
+  },
+  horizontalList: {
+    paddingLeft: rwp(10),
+  },
+  rewardItem: {
+    alignItems: 'center',
+    marginHorizontal: rwp(8),
+    padding: 10,
+  },
+  rewardImage: {
+    width: rwp(100),
+    height: rwp(100),
+    resizeMode: 'cover',
+    borderRadius: rwp(50),
+  },
+  rewardName: {
+    marginTop: rhp(10),
+    fontSize: rfs(18),
+    marginBottom: rhp(10),
     color: colors.white,
-    alignSelf: 'center',
-  },
-  insideBtnStyle: {
-    height: rhp(33),
-    backgroundColor: colors.darkOrange,
-    borderTopColor: 'orange',
-    borderLeftColor: 'orange',
-    borderRightColor: 'orange',
-    borderBottomColor: 'white',
-    justifyContent: 'center',
+    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
 });

@@ -10,11 +10,11 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   appBarContainer: {
-    paddingVertical: rhp(5),
-    marginTop: rhp(50),
+    paddingVertical: rhp(20),
+    marginTop: rhp(20),
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: rhp(40),
+    marginBottom: rhp(20),
   },
   avatarImg: {
     width: rwp(70),

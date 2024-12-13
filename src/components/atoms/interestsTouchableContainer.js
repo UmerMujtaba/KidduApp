@@ -36,6 +36,7 @@ const InterestsTouchableComponent = ({
         )}
         <FastImage
           source={imageSource ? {uri: imageSource} : images.alphabets.a}
+          resizeMode={FastImage.resizeMode.contain}
           style={styles.imgStyle}
         />
         <Text style={styles.titleStyle}>{title}</Text>
@@ -57,7 +58,6 @@ const styles = StyleSheet.create({
     marginVertical: rhp(15),
   },
   imgStyle: {
-    resizeMode: 'contain',
     height: rhp(80),
     width: rwp(80),
   },

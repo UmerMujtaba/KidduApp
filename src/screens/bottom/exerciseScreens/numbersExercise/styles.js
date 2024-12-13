@@ -81,8 +81,9 @@ export const styles = StyleSheet.create({
     color: colors.backgroundClr,
   },
   progressBarContainer: {
-    width: '100%',
-    height: 4,
+    width: wp(90),
+    alignSelf: 'center',
+    height: rhp(8),
     backgroundColor: colors.disabled,
     borderRadius: 5,
     overflow: 'hidden',
@@ -90,7 +91,7 @@ export const styles = StyleSheet.create({
   },
   progressBar: {
     height: '100%',
-    backgroundColor: colors.green,
+    backgroundColor: colors.backgroundClr,
   },
   fireworksAnimation: {
     height: Dimensions.get('screen').height,

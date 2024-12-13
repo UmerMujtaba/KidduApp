@@ -1,39 +1,54 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import FastImage from 'react-native-fast-image';
 import {images} from '../../assets/images';
 import {colors} from '../../constants/colors';
-import {hp, rfs, rhp, rwp} from '../../constants/dimensions';
+import {rfs, rhp, rwp} from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
-import FastImage from 'react-native-fast-image';
-
+import ProfileRoundedAvatar from './profileAvatar';
 const CustomAppBar = ({
   title,
+  back,
   questionMark,
   onQuestionPress,
   onSpeakerPress,
   speaker,
+  onBackPress,
+  notification,
+  onNotificationPress,
 }) => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container(questionMark)}>
+    <View style={styles.container}>
       <View style={{width: '20%'}}>
-        <View style={styles.btnStyle}>
-          <TouchableOpacity
-            style={[styles.btnStyle, styles.insideBtnStyle]}
-            onPress={() => navigation.goBack()}>
-            <FastImage
-              source={images.icons.backIcon}
-              style={styles.backIconStyle}
-            />
-          </TouchableOpacity>
-        </View>
+        {back && (
+          <View style={styles.btnStyle}>
+            <TouchableOpacity
+              style={[styles.btnStyle, styles.insideBtnStyle]}
+              onPress={onBackPress}>
+              <FastImage
+                source={images.icons.backIcon}
+                style={styles.backIconStyle}
+              />
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
 
-      <View style={styles.textWrapper(questionMark)}>
+      <View style={styles.textWrapper}>
         <Text style={styles.textHeading}>{title}</Text>
+        {notification && (
+          <ProfileRoundedAvatar
+            imageSource={images.girlAvatar}
+            mainContainer={{backgroundColor: colors.darkPink}}
+            innerContainer={{backgroundColor: colors.lightPink}}
+            // isSelected={selectedAvatar === 'girl'}
+          />
+        )}
       </View>
+
       <View style={{width: '20%'}}>
         {questionMark && (
           <TouchableOpacity
@@ -51,13 +66,26 @@ const CustomAppBar = ({
             </View>
           </TouchableOpacity>
         )}
+        {notification && (
+          <TouchableOpacity
+            style={styles.questionBtnStyle}
+            onPress={onNotificationPress}>
+            <View
+              style={[styles.questionBtnStyle, styles.insideQuestionBtnStyle]}>
+              <FastImage
+                source={images.icons.notificationsIcon}
+                style={styles.backIconStyle}
+              />
+            </View>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: questionMark => ({
+  container: {
     flexDirection: 'row',
     paddingHorizontal: rwp(10),
     paddingVertical: rhp(10),
@@ -66,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     // backgroundColor: 'red',
-  }),
+  },
   btnStyle: {
     width: rwp(45),
     backgroundColor: colors.blackishOrange,
@@ -105,12 +133,12 @@ const styles = StyleSheet.create({
     width: rwp(20),
     alignSelf: 'center',
   },
-  textWrapper: questionMark => ({
+  textWrapper: {
     width: '60%',
     // backgroundColor: 'blue',
     justifyContent: 'center',
     alignItems: 'center',
-  }),
+  },
   textHeading: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     color: colors.white,

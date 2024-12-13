@@ -31,4 +31,11 @@ export const colors = {
 
   correct: 'rgba(0, 179, 0, 0.7)',
   wrong: 'rgba(255, 26, 26, 0.8)',
+
+  red: '#ff0000',
+  darkishPink: '#ff3355',
+  yellow: '#FFC107',
+  pink: '#FF4081',
+
+  lightYellow: '#f9c823',
 };

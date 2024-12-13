@@ -1,36 +1,55 @@
+import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   Animated,
-  Image,
   ImageBackground,
   Text,
   TouchableOpacity,
   View,
-  Modal,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import Sound from 'react-native-sound';
+import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../../assets/images';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
 import CustomBottomTab from '../../../../components/atoms/customBottomTab';
+import ExerciseHeader from '../../../../components/atoms/exerciseHeader';
+import StickerModal from '../../../../components/atoms/stickerModal';
 import {colors} from '../../../../constants/colors';
 import {Strings} from '../../../../constants/strings';
-import {styles} from './styles';
-import {TouchableButton} from '../../../../components/atoms/button';
-import {wp} from '../../../../constants/dimensions';
-import ExerciseHeader from '../../../../components/atoms/exerciseHeader';
-import FastImage from 'react-native-fast-image';
+import {addNumberSticker} from '../../../../redux/slices/rewardsSlice';
+import {
+  setCurrentExerciseIndex,
+  setIsCorrect,
+  setPlayFireworks,
+  setRandomShapes,
+  setSelectedOption,
+  setShowModal,
+} from '../../../../redux/slices/shapesExerciseSlice';
 import {shapesExerciseData} from '../../../../utils/shapesExerciseData';
+import {styles} from './styles';
+import {useStickerManager} from '../../../../hooks';
 
 const ShapesExercise = () => {
-  const progressAnim = useState(new Animated.Value(1))[0];
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const progressAnim = new Animated.Value(1);
   const fireworksSoundRef = useRef(null);
-  const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [isCorrect, setIsCorrect] = useState(null);
-  const [randomShapes, setRandomShapes] = useState([]);
-  const [playFireworks, setPlayFireworks] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [earnedSticker, setEarnedSticker] = useState(null);
+  const [showStickerModal, setShowStickerModal] = useState(false);
+  const {getStickerForExercise} = useStickerManager();
+
+  const {
+    currentExerciseIndex,
+    selectedOption,
+    isCorrect,
+    randomShapes,
+    playFireworks,
+    showModal,
+  } = useSelector(state => state.shapesExerciseReducer);
+
+  const [isFireworksPlaying, setIsFireworksPlaying] = useState(false);
 
   useEffect(() => {
     fireworksSoundRef.current = new Sound(
@@ -51,25 +70,12 @@ const ShapesExercise = () => {
   }, []);
 
   useEffect(() => {
-    const currentShape =
-      shapesExerciseData[Math.floor(Math.random() * shapesExerciseData.length)];
-    const options = [currentShape];
+    dispatch(setRandomShapes());
+  }, [currentExerciseIndex, dispatch]);
+  const progress = ((currentExerciseIndex + 1) / 10) * 100;
 
-    while (options.length < 3) {
-      const randomOption =
-        shapesExerciseData[
-          Math.floor(Math.random() * shapesExerciseData.length)
-        ];
-      if (!options.includes(randomOption)) {
-        options.push(randomOption);
-      }
-    }
-
-    setRandomShapes(options.sort(() => Math.random() - 0.5));
-  }, [currentExerciseIndex]);
-
+  // Update progress animation if needed
   useEffect(() => {
-    const progress = ((currentExerciseIndex + 1) / 10) * 100;
     Animated.timing(progressAnim, {
       toValue: progress,
       duration: 500,
@@ -77,17 +83,18 @@ const ShapesExercise = () => {
     }).start();
 
     if (currentExerciseIndex === 9) {
-      setShowModal(true);
+      dispatch(setShowModal(true));
     }
-  }, [currentExerciseIndex]);
+  }, [currentExerciseIndex, dispatch]);
 
   const handleOptionSelect = option => {
-    setSelectedOption(option);
-    const correctShape = randomShapes[0]; // Assuming the correct shape is the first in the randomShapes array
+    dispatch(setSelectedOption(option));
+    const correctShape = randomShapes[0];
 
     if (option.name === correctShape.name) {
-      setIsCorrect('correct');
-      setPlayFireworks(true);
+      dispatch(setIsCorrect('correct'));
+      dispatch(setPlayFireworks(true));
+      setIsFireworksPlaying(true);
 
       // Play fireworks sound on correct selection
       if (fireworksSoundRef.current) {
@@ -100,51 +107,65 @@ const ShapesExercise = () => {
         });
       }
     } else {
-      setIsCorrect('incorrect');
-      setPlayFireworks(false);
+      dispatch(setIsCorrect('incorrect'));
+      dispatch(setPlayFireworks(false));
+      setIsFireworksPlaying(false);
+    }
+
+    if (currentExerciseIndex === 9) {
+      const sticker = getStickerForExercise();
+
+      setEarnedSticker(sticker);
+      setShowStickerModal(true);
+
+      dispatch(addNumberSticker(sticker));
     }
   };
 
   const handleNext = () => {
-    // Move to the next exercise only if the user selected the correct option
     if (isCorrect === 'correct' && currentExerciseIndex < 9) {
-      setCurrentExerciseIndex(prevIndex => prevIndex + 1);
-      setIsCorrect(null);
-      setSelectedOption(null);
-      setPlayFireworks(false);
+      dispatch(setCurrentExerciseIndex(currentExerciseIndex + 1));
+      dispatch(setIsCorrect(null));
+      dispatch(setSelectedOption(null));
+      dispatch(setPlayFireworks(false));
+      setIsFireworksPlaying(false);
     }
   };
 
   const handleBack = () => {
-    // Allow going back only if the current exercise index is greater than 0
     if (currentExerciseIndex > 0) {
-      setCurrentExerciseIndex(prevIndex => prevIndex - 1);
-      setIsCorrect(null);
-      setSelectedOption(null);
-      setPlayFireworks(false);
+      dispatch(setCurrentExerciseIndex(currentExerciseIndex - 1));
+      dispatch(setIsCorrect(null));
+      dispatch(setSelectedOption(null));
+      dispatch(setPlayFireworks(false));
+      setIsFireworksPlaying(false);
     }
   };
 
   const closeModal = () => {
-    setShowModal(false);
+    dispatch(setShowModal(false));
   };
-
-  const progress = (currentExerciseIndex / shapesExerciseData.length) * 100;
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar title={'Shapes'} questionMark speaker onSpeakerPress={''} />
+      <CustomAppBar
+        title={'Shapes'}
+        questionMark
+        speaker
+        onSpeakerPress={''}
+        onBackPress={() => navigation.goBack()}
+        back
+      />
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           <ExerciseHeader
             letter={'Shapes Set'}
             currentExerciseIndex={currentExerciseIndex + 1}
             totalExercises={shapesExerciseData.length}
-            // progress={progress}
+            progress={progress}
           />
 
           <View style={styles.bottomBody}>
-            {/* Display the question */}
             <View style={styles.imgContainerBorder}>
               <View style={styles.imgContainer}>
                 <FastImage
@@ -157,7 +178,6 @@ const ShapesExercise = () => {
               {Strings.pleaseSelectCorrectShape}
             </Text>
 
-            {/* Options row */}
             <View style={styles.boxRow}>
               {randomShapes.map((shape, index) => (
                 <TouchableOpacity
@@ -167,26 +187,15 @@ const ShapesExercise = () => {
                     selectedOption?.name === shape.name && {
                       backgroundColor:
                         isCorrect === 'correct'
-                          ? colors.correct // Correct: Green
+                          ? colors.correct
                           : isCorrect === 'incorrect'
-                          ? colors.wrong // Incorrect: Red
-                          : colors.transparent, // Default: Transparent
+                          ? colors.wrong
+                          : colors.transparent,
                     },
                   ]}
                   onPress={() => handleOptionSelect(shape)}>
                   <View
-                    style={[
-                      styles.optContainer,
-                      styles.optContainerInside,
-                      selectedOption?.name === shape.name && {
-                        backgroundColor:
-                          isCorrect === 'correct'
-                            ? colors.correct // Correct: Green
-                            : isCorrect === 'incorrect'
-                            ? colors.wrong // Incorrect: Red
-                            : colors.transparent, // Default: Transparent
-                      },
-                    ]}>
+                    style={[styles.optContainer, styles.optContainerInside]}>
                     <FastImage
                       source={{uri: shape.image}}
                       style={styles.optImage}
@@ -196,40 +205,34 @@ const ShapesExercise = () => {
               ))}
             </View>
           </View>
+
           {isCorrect && playFireworks && (
             <LottieView
               source={require('../../../../assets/lottie/fireworks.json')}
               autoPlay
               loop={false}
               style={styles.fireworksAnimation}
+              onAnimationFinish={() => {
+                if (isFireworksPlaying) {
+                  handleNext();
+                }
+              }}
             />
           )}
+
+          <StickerModal
+            isVisible={showStickerModal}
+            earnedSticker={earnedSticker}
+            onClose={() => {
+              setShowStickerModal(false);
+              setTimeout(() => {
+                navigation.goBack();
+              }, 2000);
+            }}
+          />
           <CustomBottomTab onNext={handleNext} onBack={handleBack} />
         </View>
       </View>
-
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={showModal}
-        onRequestClose={closeModal}
-        statusBarTranslucent={true}>
-        <TouchableOpacity style={styles.modalBackground} onPress={closeModal}>
-          <View style={styles.modalContainer}>
-            <FastImage source={images.rewardHat} style={styles.modalImg} />
-            <Text style={styles.modalMessage}>{Strings.goodJob}</Text>
-            <Text style={styles.modalSubMsg}>
-              {Strings.unlockedYourNewReward}
-            </Text>
-            <TouchableButton
-              btnPropStyle={{width: wp(60)}}
-              btnInside={{width: wp(60)}}
-              title={'Unlock'}
-              onPress={closeModal}
-            />
-          </View>
-        </TouchableOpacity>
-      </Modal>
     </ImageBackground>
   );
 };

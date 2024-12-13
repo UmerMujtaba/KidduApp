@@ -3,11 +3,37 @@ export const images = {
   backgroundImage: require('./backgroundimage.png'),
   boyAvatar: require('./boy.png'),
   girlAvatar: require('./girl.png'),
-  rewardHat: require('./hat.png'),
+
   defaultImg: require('./defaultImg.png'),
   bearBooks: require('./bearBooks.png'),
   bearPainting: require('./bearPainting.png'),
   elephantBook: require('./elephantBook.png'),
+
+  icons: {
+    homeIcon: require('./icons/homeicon.png'),
+    notesIcon: require('./icons/notesicon.png'),
+    flagIcon: require('./icons/flagicon.png'),
+    rewardsIcon: require('./icons/rewardicon.png'),
+    settingsIcon: require('./icons/settingicon.png'),
+    backIcon: require('./icons/backicon.png'),
+    eyeIcon: require('./icons/eyeicon.png'),
+    questionIcon: require('./icons/question.png'),
+    loudSpeaker: require('./icons/loud_speaker.png'),
+    speakIcon: require('./icons/speak.png'),
+    gameIcon: require('./icons/gameIcon.png'),
+    notificationsIcon: require('./icons/notificationIcon.png'),
+    rightArrowIcon: require('./icons/rightArrowIcon.png'),
+    profileIcon: require('./icons/profileIcon.png'),
+    logoutIcon: require('./icons/logoutIcon.png'),
+    statsIcon: require('./icons/statsIcon.png'),
+  },
+  rewards: {
+    rewardHat: require('./hat.jpeg'),
+    rewardTrophy: require('./trophy.jpeg'),
+    chickReward: require('./chickReward.jpeg'),
+    starReward: require('./starReward.jpeg'),
+    unicornReward: require('./unicornReward.jpeg'),
+  },
 
   alphabets: {
     a: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738566/alphabetsImages/ki7tk1bwo9nb5ibmfuv2.png',
@@ -124,18 +150,6 @@ export const images = {
       'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733743097/gamesImages/fex9yw8qmuxbhzs94ccp.webp',
     gamingKidsGroup:
       'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733749845/gamesImages/xgts4kih3porhdf8c3fr.jpg',
-  },
-  icons: {
-    homeIcon: require('./icons/homeicon.png'),
-    notesIcon: require('./icons/notesicon.png'),
-    flagIcon: require('./icons/flagicon.png'),
-    rewardsIcon: require('./icons/rewardicon.png'),
-    settingsIcon: require('./icons/settingicon.png'),
-    backIcon: require('./icons/backicon.png'),
-    eyeIcon: require('./icons/eyeicon.png'),
-    questionIcon: require('./icons/question.png'),
-    loudSpeaker: require('./icons/loud_speaker.png'),
-    speakIcon: require('./icons/speak.png'),
   },
 
   letterA: {

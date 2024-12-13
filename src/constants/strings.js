@@ -15,7 +15,12 @@ export const Strings = {
   congrats: 'Congrats!',
   youUnlockedNewReward: 'You are rewarded with 1 magic reward',
   howMany: 'How many items?',
-  canYouChooseTheCorrect: 'Can you choose the correct animal?',
+  canYouChooseTheCorrect: 'Choose the correct animal?',
+  chooseKidsInterests: 'Choose kid interests?',
+  logout: 'Log out',
+  setALimitOnTheScreenTime:
+    'Set a limit on the screen time at a stretch to make sure your child watches in moderation',
+  manageScreenTime: 'Manage Screen Time',
 };
 
 export const ScreenNames = {
@@ -39,6 +44,7 @@ export const ScreenNames = {
   animalsScreen: 'AnimalsScreen',
   vehicleScreen: 'VehicleScreen',
   kidsGamesScreen: 'KidsGamesScreen',
+  colorsScreen: 'ColorsScreen',
   alphabetExerciseMainScreen: 'AlphabetExerciseMainScreen',
 
   alphabetExerciseScreen: 'AlphabetExerciseScreen',

@@ -14,22 +14,20 @@ import {rhp} from '../../../../constants/dimensions';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {AnimalsData} from '../../../../utils/animalsData';
 import {styles} from './styles';
+import {useNavigation} from '@react-navigation/native';
 const AnimalsScreen = () => {
   const [playingSound, setPlayingSound] = useState(null);
   const {setLoader} = useLoaderProvider();
-
+  const navigation = useNavigation();
   useEffect(() => {
     setLoader(true);
-
     setTimeout(() => {
       setLoader(false);
     }, 1000);
-
     return () => setLoader(false);
   }, [setLoader]);
   const renderItem = ({item}) => {
     console.log('🚀 ~ renderItem ~ item:', item);
-
     const {letter, image, soundFile} = item;
     const handleSpeakerPress = () => {
       console.log('🚀 ~ handleSpeakerPress ~ item:', item);
@@ -40,7 +38,6 @@ const AnimalsScreen = () => {
       Tts.setDefaultPitch(0.7);
       Tts.setDefaultRate(0.5, true);
     };
-
     return (
       <View>
         <AlphabetComponent
@@ -66,7 +63,11 @@ const AnimalsScreen = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar title={'Animals'} />
+      <CustomAppBar
+        title={'Animals'}
+        onBackPress={() => navigation.goBack()}
+        back
+      />
       <FlatList
         data={AnimalsData}
         renderItem={renderItem}

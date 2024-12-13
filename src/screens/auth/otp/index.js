@@ -10,6 +10,7 @@ import {navigate} from '../../../navigationHandler/navigationRef';
 import {ScreenNames} from '../../../constants/strings';
 import {useKeyboard} from '../../../hooks';
 import FastImage from 'react-native-fast-image';
+import {rhp} from '../../../constants/dimensions';
 
 const OtPScreen = () => {
   const keyboardStatus = useKeyboard();
@@ -26,8 +27,13 @@ const OtPScreen = () => {
       />
       <TimerContainer />
       {!keyboardStatus && (
-        <View style={{flex: 1, justifyContent: 'flex-end'}}>
-          <FastImage source={images.cubImage} style={styles.imgStyle} />
+        <View
+          style={{flex: 1, justifyContent: 'flex-end', marginBottom: rhp(40)}}>
+          <FastImage
+            source={images.cubImage}
+            style={styles.imgStyle}
+            resizeMode={FastImage.resizeMode.cover}
+          />
         </View>
       )}
       {/* </View> */}

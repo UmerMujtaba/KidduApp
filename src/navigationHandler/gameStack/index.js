@@ -5,7 +5,7 @@ import GamesScreen from '../../screens/bottom/games';
 import AlphabetsExerciseMain from '../../screens/bottom/exerciseScreens/alphabetExerciseMain';
 import KidsGameExercise from '../../screens/bottom/exerciseScreens/kidsGameExercise';
 
-const GameStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
 
 const navigationOptions = () => ({
   headerShown: false,
@@ -14,16 +14,16 @@ const navigationOptions = () => ({
   animation: 'slide_from_right',
 });
 
-const GameNavigator = () => {
+const HomeNavigator = () => {
   return (
-    <GameStack.Navigator initialRouteName={ScreenNames.gameScreen}>
-      <GameStack.Screen
+    <HomeStack.Navigator initialRouteName={ScreenNames.gameScreen}>
+      <HomeStack.Screen
         name={ScreenNames.gameScreen}
         component={GamesScreen}
         options={navigationOptions}
       />
-    </GameStack.Navigator>
+    </HomeStack.Navigator>
   );
 };
 
-export default GameNavigator;
+export default HomeNavigator;

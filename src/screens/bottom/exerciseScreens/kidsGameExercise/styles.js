@@ -65,6 +65,7 @@ export const styles = StyleSheet.create({
     width: wp(12),
     borderRadius: 16,
   },
+
   btnInside: {
     height: rhp(44),
     backgroundColor: colors.darkOrange,
@@ -146,11 +147,29 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.wrong,
   },
 
+  btnStyle: {
+    width: wp(45),
+    backgroundColor: colors.blackishOrange,
+    height: rhp(50),
+    alignSelf: 'center',
+    borderRadius: 16,
+    flexDirection: 'row',
+  },
   btnText: {
     textAlign: 'center',
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    fontSize: rfs(16),
+    fontSize: rfs(20),
     color: colors.white,
+    width: '60%',
     alignSelf: 'center',
+  },
+  insideBtnStyle: {
+    height: rhp(44),
+    backgroundColor: colors.darkOrange,
+    borderTopColor: 'orange',
+    borderLeftColor: 'orange',
+    borderRightColor: 'orange',
+    borderBottomColor: 'white',
+    justifyContent: 'center',
   },
 });
